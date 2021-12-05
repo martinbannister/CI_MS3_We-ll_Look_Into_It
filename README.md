@@ -18,12 +18,12 @@
    2. [User Stories](#user-stories)
       1. [First Time Visitors](#first-time-visitors)
       2. [Returning Visitors](#returning-visitors)
-      3. [Hotel Owner](#hotel-owner)
+      3. [Council Employees](#council-employees)
 3. [Scope](#scope)
    1. [Design](#design)
-   2. [Colour Scheme](colour-scheme)
-   3. [Typography](#typeography)
-   4. [Images](#images)
+       1. [Colour Scheme](#colour-scheme)
+       2. [Typography](#typeography)
+       3. [Images](#images)
 4. [Wireframes](#wireframes)
 5. [Features](#features)
 6. [Technologies Used](#technologies-used)
@@ -119,3 +119,10 @@ Master Admin account features:
 10. Add, Edit and Delete Pothole status'.
 11. Revoke user admin privileges.
 
+### Design
+
+#### Colour Scheme
+
+#### Typography
+
+#### Images
