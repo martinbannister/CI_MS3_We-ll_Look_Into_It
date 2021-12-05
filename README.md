@@ -33,7 +33,6 @@
 9. [Credits](#credits)
 10. [Acknowledgements](#acknowledgements)
 
-
 ## Project Goals
 
 ### Public Users
@@ -54,3 +53,44 @@
 * To NOT have the ability to delete potholes, only update status.
 * To see a list of newly added/unread pothole reports.
 * To be able to add comments to pothole reports.
+
+[Back to Index](#table-of-contents)
+
+## User Experience
+
+The site is to be designed with simplicity and ease of access in mind.  It will have a mobile first approach to make reporting potholes quick and easy.  Users will be required to register for an account to report and manage their pothole submissions.  Users will be given the opportunity to comment on their submissions to provide helpful information as to why the pothole should be dealt with.  Search capability will be provided so users, registered or not, can check if a pothole has been reported already to save duplicate reports.
+
+### Target Audience
+
+* Public road users
+* Council employees responsible for road maintenance
+
+### User Stories
+
+#### First Time Visitors
+
+As a first time visitor I want...
+
+1. to be able to search pothole reports to see if a report has already been made.
+2. to be able to easily submit a pothole report.
+
+#### Returning Visitors
+
+Upon returning to the site I want to...
+
+3. view a list of my reports and check their status.
+4. update my reports to add or remove information.
+5. upvote other users reports.
+6. request a previously unrepaired pothole be reviewed following a change to it's condition.
+
+#### Council Employees
+
+As someone administering potholes for a coucil I want to...
+
+6. view a list of all pothole reports for my county.
+7. see any newly submitted pothole reports.
+8. update the status of existing reports and add comments.
+9. grant access to my colleagues to be able to update reports.
+
+[Back to Index](#table-of-contents)
+
