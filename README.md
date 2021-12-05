@@ -94,3 +94,28 @@ As someone administering potholes for a coucil I want to...
 
 [Back to Index](#table-of-contents)
 
+
+## Scope
+
+Based on the project goals the site will use the templating language flask so content can be built dynamically based on a backend database.  For this project MongoDB will be used for the data because of the simple data structure.
+
+The following features will be included based on the goals and user stories.
+
+1. Limited user management with the ability to register for a new account.
+2. Create new pothole reports.
+3. Search existing pothole reports.
+4. Edit your own pothole reports.
+5. Delete your own reports.
+6. See the status of reports.
+
+Admin features:
+
+7. Add and remove Areas from counties.
+8. Grant other users admin privileges.
+
+Master Admin account features:
+
+9. Add, Edit and Delete counties.
+10. Add, Edit and Delete Pothole status'.
+11. Revoke user admin privileges.
+
