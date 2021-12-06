@@ -4,7 +4,7 @@ from flask import (Flask, flash, render_template, redirect,
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
-    import env.py
+    import env
 
 
 app = Flask(__name__)
