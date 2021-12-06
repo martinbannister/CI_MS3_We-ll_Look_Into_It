@@ -17,9 +17,10 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_reports")
-def get_reports():
-    return "Getting reports..."
+@app.route("/get_potholes")
+def get_potholes():
+    potholes = mongo.db.potholes.find()
+    return render_template("potholes.html", potholes=potholes)
 
 
 if __name__ == "__main__":
