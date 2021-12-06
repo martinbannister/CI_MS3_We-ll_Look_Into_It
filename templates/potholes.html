@@ -1,4 +1,10 @@
-{% extends base.html %}
+{% extends "base.html" %}
 {% block content %}
-    
+    {% for pothole in potholes %}
+        {{ pothole.county_name }}<br />
+        {{ pothole.area_name }}<br />
+        {{ pothole.pothole_location }}<br />
+        {{ pothole.depth }}<br/>
+        {{ pothole.comments }}
+    {% endfor %}
 {% endblock %}
