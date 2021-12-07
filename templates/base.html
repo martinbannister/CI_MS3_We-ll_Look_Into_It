@@ -23,10 +23,10 @@
         <header>
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo right">We'll Look Into It</a>
+                    <a href="{{ url_for('get_potholes') }}" class="brand-logo right">We'll Look Into It</a>
                     <a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="left hide-on-med-and-down">
-                        <li class="active"><a href="">Potholes</a></li>
+                        <li class="active"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                         <li><a href="">Log In</a></li>
                         <li><a href="">Register</a></li>
                         <li><a href="">Your Profile</a></li>
@@ -39,7 +39,8 @@
             </nav>
 
             <ul class="sidenav" id="mobile-sidenav">
-                <li><a href="">Potholes</a></li>
+                <li><h4 class="center-align">We'll Look Into It</h4></li>
+                <li><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                 <li><a href="">Log In</a></li>
                 <li><a href="">Register</a></li>
                 <li><a href="">Your Profile</a></li>
@@ -60,17 +61,29 @@
         {% endblock %}
 
         <footer class="page-footer">
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large red">
+                  <i class="large material-icons">mode_edit</i>
+                </a>
+                <ul>
+                  <li><a class="btn-floating red">Counties<i class="material-icons">insert_chart</i></a></li>
+                  <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+                  <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+                  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                </ul>
+              </div>
             <div class="footer-copyright">
                 <div class="container">
+                    <!--
                     <div class="fixed-action-btn">
                         <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
                             <i class="material-icons">add</i>
                         </a>
-                        <li><a href="">Counties</a></li>
+                        <li><a href=""></a></li>
                         <li><a href="">Areas</a></li>
                         <li><a href="">Pothole Statuses</a></li>
                         <li><a href="">Users</a></li>
-                    </div>
+                    </div>-->
                     © 2021 Copyright Martin Bannister-Kelly
                     <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
                 </div>
