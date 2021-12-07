@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    {% block styles %}
-    {% endblock %}
-    <title>We'll Look Into It - Pothole Reporter</title>
-</head>
-<body>
 
-    <header>
-        <nav>
-            <div class="nav-wrapper">
-              <a href="#!" class="brand-logo right">We'll Look Into It</a>
-              <ul class="left hide-on-med-and-down">
-                <li class="active"><a href="">Potholes</a></li>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+            type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"
+            type="text/css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+        {% block styles %}
+        {% endblock %}
+        <title>We'll Look Into It - Pothole Reporter</title>
+    </head>
+
+    <body>
+
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo right">We'll Look Into It</a>
+                    <ul class="left hide-on-med-and-down">
+                        <li class="active"><a href="">Potholes</a></li>
+                        <li><a href="">Log In</a></li>
+                        <li><a href="">Register</a></li>
+                        <li><a href="">Your Profile</a></li>
+                        <li><a href="">Counties</a></li>
+                        <li><a href="">Areas</a></li>
+                        <li><a href="">Pothole Statuses</a></li>
+                        <li><a href="">Users</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-sidenav">
+                <li><a href="">Potholes</a></li>
                 <li><a href="">Log In</a></li>
                 <li><a href="">Register</a></li>
                 <li><a href="">Your Profile</a></li>
@@ -29,27 +46,35 @@
                 <li><a href="">Areas</a></li>
                 <li><a href="">Pothole Statuses</a></li>
                 <li><a href="">Users</a></li>
-              </ul>
-            </div>
-          </nav>
+            </ul>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
 
-          <ul class="sidenav" id="mobile-sidenav">
-            <li><a href="">Potholes</a></li>
-            <li><a href="">Log In</a></li>
-            <li><a href="">Register</a></li>
-            <li><a href="">Your Profile</a></li>
-            <li><a href="">Counties</a></li>
-            <li><a href="">Areas</a></li>
-            <li><a href="">Pothole Statuses</a></li>
-            <li><a href="">Users</a></li>
-          </ul>
-    </header>
-    {% block content %}
-    {% endblock %}
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    {% block scripts %}
-    {% endblock %}
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        {% block scripts %}
+        {% endblock %}
+
+        <footer class="page-footer">
+            <div class="footer-copyright">
+                <div class="container">
+                    <div class="fixed-action-btn">
+                        <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+                            <i class="material-icons">add</i>
+                        </a>
+                        <li><a href="">Counties</a></li>
+                        <li><a href="">Areas</a></li>
+                        <li><a href="">Pothole Statuses</a></li>
+                        <li><a href="">Users</a></li>
+                    </div>
+                    © 2021 Copyright Martin Bannister-Kelly
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+
 </html>
