@@ -3,4 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Sidenav.init(sidenav);
     let FABs = document.querySelectorAll('.fixed-action-btn');
     M.FloatingActionButton.init(FABs);
+    let selectElems = document.querySelectorAll('select');
+    if (selectElems) {
+      M.FormSelect.init(selectElems);
+    }
   });
