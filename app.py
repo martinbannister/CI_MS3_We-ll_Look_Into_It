@@ -38,7 +38,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "primary_county": request.form.get("primary_county").lower(),
+            "primary_county": request.form.get("primary_county"),
             "admin": False
         }
         mongo.db.users.insert_one(register)
@@ -47,7 +47,8 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("Registration successful")
 
-    return render_template("register.html")
+    counties = mongo.db.counties.find().sort("county_name", 1)
+    return render_template("register.html", counties=counties)
 
 
 if __name__ == "__main__":
