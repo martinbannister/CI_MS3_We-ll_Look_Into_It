@@ -26,6 +26,27 @@ def get_potholes():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # check if the username already exists in database
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+                flash("Username already exisits")
+                return redirect(url_for("register"))
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "primary_county": request.form.get("primary_county").lower(),
+            "admin": False
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new users into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration successful")
+
     return render_template("register.html")
 
 
