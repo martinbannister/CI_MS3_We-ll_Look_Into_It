@@ -15,9 +15,28 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        <i class="material-icons prefix">not_listed_location</i>
+                        <select id="primary_county" name="primary_county" class="validate" required>
+                            <option value="" disabled selected>Choose your preferred County</option>
+                            {% for county in counties %}
+                                <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label>Preferred County</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
                         <i class="material-icons prefix">password</i>
                         <input id="password" name="password" type="password" class="validate">
                         <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="confirm_password" name="confirm_password" type="password" class="validate">
+                        <label for="confirm_password">Confirm Password</label>
                     </div>
                 </div>
                 <div class="row">
