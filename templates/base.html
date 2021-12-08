@@ -29,7 +29,7 @@
                         <li class="active"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
-                        <li><a href="">Your Profile</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
                         <li><a href="">Counties</a></li>
                         <li><a href="">Areas</a></li>
                         <li><a href="">Pothole Statuses</a></li>
@@ -43,7 +43,7 @@
                 <li><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="">Your Profile</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
                 <li><a href="">Counties</a></li>
                 <li><a href="">Areas</a></li>
                 <li><a href="">Pothole Statuses</a></li>

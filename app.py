@@ -1,6 +1,6 @@
 import os
 from flask import (Flask, flash, render_template, redirect,
-                    request, session, url_for)
+                   request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -46,6 +46,7 @@ def register():
         # put the new users into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration successful", "flash_success")
+        return redirect(url_for("profile", username=session["user"]))
 
     counties = mongo.db.counties.find().sort("county_name", 1)
     return render_template("register.html", counties=counties)
@@ -57,13 +58,15 @@ def login():
         # check if username exists in database
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")),"flash_success")
+                flash("Welcome, {}".format(request.form.get("username")),
+                      "flash_success")
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password
                 flash("Incorrect Username and/or Password", "flash_error")
@@ -72,8 +75,16 @@ def login():
             #username doesn't exist
             flash("Incorrect Username and/or Password", "flash_error")
             return redirect(url_for("login"))
-            
+
     return render_template("login.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # get the session users username from the database
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 
 if __name__ == "__main__":
