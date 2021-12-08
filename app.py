@@ -64,15 +64,16 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username").capitalize()),
-                      "flash_success")
+                session["admin"] = existing_user["admin"]
+                flash("Welcome, {}".format(request.form.get("username")
+                                           .capitalize()), "flash_success")
                 return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password
                 flash("Incorrect Username and/or Password", "flash_error")
                 return redirect(url_for("login"))
         else:
-            #username doesn't exist
+            # username doesn't exist
             flash("Incorrect Username and/or Password", "flash_error")
             return redirect(url_for("login"))
 
