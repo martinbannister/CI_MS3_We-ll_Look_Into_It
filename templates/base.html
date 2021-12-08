@@ -28,6 +28,7 @@
                     <ul class="left hide-on-med-and-down">
                         <li class="active"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
                         <li><a href="">Counties</a></li>
@@ -42,6 +43,7 @@
                 <li><h4 class="center-align">We'll Look Into It</h4></li>
                 <li><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
                 <li><a href="">Counties</a></li>

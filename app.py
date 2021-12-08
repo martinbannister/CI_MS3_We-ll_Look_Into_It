@@ -32,7 +32,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exisits", "flash_error")
+            flash("Sorry, that username already exisits.", "flash_error")
             return redirect(url_for("register"))
 
         register = {
@@ -45,7 +45,7 @@ def register():
 
         # put the new users into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration successful", "flash_success")
+        flash("You have successfully registered", "flash_success")
         return redirect(url_for("profile", username=session["user"]))
 
     counties = mongo.db.counties.find().sort("county_name", 1)
@@ -64,7 +64,7 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")),
+                flash("Welcome, {}".format(request.form.get("username").capitalize()),
                       "flash_success")
                 return redirect(url_for("profile", username=session["user"]))
             else:
@@ -84,7 +84,18 @@ def profile(username):
     # get the session users username from the database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    flash("You have successfully logged out", "flash_info")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
