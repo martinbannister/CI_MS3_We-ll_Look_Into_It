@@ -8,3 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
       M.FormSelect.init(selectElems);
     }
   });
+
+function checkRegisterForm(e) {
+    e.preventDefault();
+    let elems = e.target.elements;
+    let pass1 = elems.password.value;
+    let pass2 = elems.confirm_password.value;
+
+    if (pass1 != pass2) {
+      alert('Please ensure passwords match');
+      return false;
+    } else {
+      return true;
+    }
+  }
