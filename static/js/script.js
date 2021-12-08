@@ -10,15 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 function checkRegisterForm(e) {
-    e.preventDefault();
     let elems = e.target.elements;
     let pass1 = elems.password.value;
     let pass2 = elems.confirm_password.value;
 
     if (pass1 != pass2) {
-      alert('Please ensure passwords match');
+      e.preventDefault();
+      M.toast({html: 'Please ensure passwords match'});
       return false;
     } else {
+      console.log('submitting form');
       return true;
     }
   }
