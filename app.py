@@ -32,8 +32,8 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-                flash("Username already exisits")
-                return redirect(url_for("register"))
+            flash("Username already exisits", "flash_error")
+            return redirect(url_for("register"))
 
         register = {
             "username": request.form.get("username").lower(),
@@ -45,7 +45,7 @@ def register():
 
         # put the new users into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration successful")
+        flash("Registration successful", "flash_success")
 
     counties = mongo.db.counties.find().sort("county_name", 1)
     return render_template("register.html", counties=counties)
