@@ -8,12 +8,15 @@
             
         {% for pothole in potholes %}
             <li>
-                <div class="collapsible-header purple text-white"><i class="material-icons">filter_drama</i>{{ pothole.pothole_location }}</div>
-                <div class="collapsible-body text-white purple lighten-2">
-                    {{ pothole.county_name }}<br />
-                    {{ pothole.area_name }}<br />
-                    {{ pothole.depth }}mm<br/>
-                    {{ pothole.comments }}
+                <div class="collapsible-header purple white-text">
+                    <i class="material-icons">disc_full</i>
+                    <strong><em>{{ pothole.pothole_location }}</em></strong>
+                </div>
+                <div class="collapsible-body white-text purple lighten-2">
+                    <p>County: {{ pothole.county_name }}</p>
+                    <p>Area: {{ pothole.area_name }}</p>
+                    <p>Depth: {{ pothole.depth }}mm</p>
+                    <p>Comments: {{ pothole.comments }}</p>
                 </div>
             </li>
         {% endfor %}
