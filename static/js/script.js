@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (selectElems) {
       M.FormSelect.init(selectElems);
     }
+    let accords = document.querySelectorAll('.collapsible');
+    M.Collapsible.init(accords);
   });
 
 function checkRegisterForm(e) {
