@@ -70,25 +70,6 @@
 
 
         <main>
-        <section>
-            <!-- flash messages -->
-            <!-- trying to render as Materialize toasts -->
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-                    <script src="{{ url_for('static', filename='js/flash_messages.js') }}"></script>
-                    {% for category, message in messages %}
-                        <script>
-                            flash_toast('{{ message }}', '{{ category }}');
-                        </script>
-                    {% endfor %}
-                {% else %}
-                        <script>
-                            console.log('no flash message received');
-                        </script>
-                {% endif %}
-            {% endwith %}
-        </section>
             {% block content %}
             {% endblock %}
             <div class="fixed-action-btn">
@@ -144,7 +125,21 @@
         </footer>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{{ url_for('static', filename='js/flash_messages.js') }}"></script>
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        <script>
+            // flash messages
+            // trying to render as Materialize toasts
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                            flash_toast('{{ message }}', '{{ category }}');
+                    {% endfor %}
+                {% else %}
+                            console.log('no flash message received');
+                {% endif %}
+            {% endwith %}
+        </script>
         {% block scripts %}
         {% endblock %}
 
