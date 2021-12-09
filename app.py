@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_potholes")
 def get_potholes():
-    potholes = mongo.db.potholes.find()
+    potholes = list(mongo.db.potholes.find())
     return render_template("potholes.html", potholes=potholes)
 
 
