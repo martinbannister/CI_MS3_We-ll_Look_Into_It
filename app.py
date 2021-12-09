@@ -17,6 +17,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# ---------------------------- DEFAULT / GET POTHOLES ----------------------------
 @app.route("/")
 @app.route("/get_potholes")
 def get_potholes():
@@ -24,6 +25,7 @@ def get_potholes():
     return render_template("potholes.html", potholes=potholes)
 
 
+# ---------------------------- REGISTER ----------------------------
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -52,6 +54,7 @@ def register():
     return render_template("register.html", counties=counties)
 
 
+# ---------------------------- LOGIN ----------------------------
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -80,6 +83,7 @@ def login():
     return render_template("login.html")
 
 
+# ---------------------------- PROFILE PAGE ----------------------------
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # get the session users username from the database
@@ -92,11 +96,18 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# ---------------------------- LOGOUT ----------------------------
 @app.route("/logout")
 def logout():
     flash("You have successfully logged out", "flash_info")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+# ---------------------------- ADD POTHOLE ----------------------------
+@app.route("/add_pothole")
+def add_pothole():
+    return render_template("add_pothole.html")
 
 
 if __name__ == "__main__":
