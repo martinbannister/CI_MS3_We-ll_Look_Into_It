@@ -2,18 +2,54 @@
 {% block content %}
     <h3 class="indigo-text text-darken-4 center-align">Add Pothole</h3>
 
-    <div class="row">
+    <div class="row card-panel purple lighten-5">
         <form class="col s12" method="POST" action="">
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">First Name</label>
+                    <i class="material-icons prefix indigo-text text-darken-4">map</i>
+                    <input id="county_name" name="county_name" type="text" class="validate" required>
+                    <label for="county_name">County Name*</label>
                 </div>
+            </div>
+            <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="icon_telephone" type="tel" class="validate">
-                    <label for="icon_telephone">Telephone</label>
+                    <i class="material-icons prefix indigo-text text-darken-4">signpost</i>
+                    <input id="area_name" name="area_name" type="text" class="validate" required>
+                    <label for="area_name">Area*</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">place</i>
+                    <input id="pothole_location" name="pothole_location" type="text" class="validate" required>
+                    <label for="pothole_location">Pothole Location*</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">straighten</i>
+                    <input id="depth" name="depth" type="number" class="validate" required>
+                    <label for="depth">Depth (mm)*</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">add_a_photo</i>
+                    <input id="photo" name="photo" type="text">
+                    <label for="photo">Photo</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="range-field col s12">
+                    <input id="severity" name="severity" type="range" min="1" max="6" value="1" required>
+                    <label for="severity"> <i class="material-icons prefix indigo-text text-darken-4">priority_high</i> Severity 1-6 *</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">comment</i>
+                    <textarea id="comments" name="comments" rows="4" cols="50" class="materialize-textarea" data-length="200"></textarea>
+                    <label for="comments">Comments</label>
                 </div>
             </div>
         </form>
