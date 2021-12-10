@@ -1,3 +1,4 @@
+from itertools import count
 import os
 from flask import (Flask, flash, render_template, redirect,
                    request, session, url_for)
@@ -105,9 +106,29 @@ def logout():
 
 
 # ---------------------------- ADD POTHOLE ----------------------------
-@app.route("/add_pothole")
+@app.route("/add_pothole", methods=["GET", "POST"])
 def add_pothole():
-    return render_template("add_pothole.html")
+    if request.method == "POST":
+        pothole = {
+            "created_by": session["user"],
+            "county_name": request.form.get("county_name"),
+            "area_name": request.form.get("area_name"),
+            "pothole_location": request.form.get("pothole_location"),
+            "depth": request.form.get("depth"),
+            "photo": request.form.get("photo"),
+            "severity": request.form.get("severity"),
+            "comments": request.form.get("comments"),
+            "admin_comments": "",
+            "upvotes": 0,
+            "read_status": "unread",
+            "pothole_status": "Pending"
+        }
+        mongo.db.potholes.insert_one(pothole)
+        flash("Pothole submitted for review", "flash_success")
+        return redirect(url_for("get_potholes"))
+
+    counties = mongo.db.counties.find().sort("county_name", 1)
+    return render_template("add_pothole.html", counties=counties)
 
 
 if __name__ == "__main__":
