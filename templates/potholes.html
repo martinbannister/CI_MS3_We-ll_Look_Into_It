@@ -15,11 +15,11 @@
                     <span class="new badge orange" data-badge-caption="up votes">{{ pothole.upvotes }}</span>
                 </div>
                 <div class="collapsible-body white-text purple lighten-1">
-                    <p>County: {{ pothole.county_name }}</p>
-                    <p>Area: {{ pothole.area_name }}</p>
-                    <p>Depth: {{ pothole.depth }}mm</p>
-                    <p>Severity: {{ pothole.severity }}</p>
-                    <p>Comments: {{ pothole.comments }}</p>
+                    <p><em>County</em>: <strong>{{ pothole.county_name }}</strong></p>
+                    <p><em>Area</em>: <strong>{{ pothole.area_name }}</strong></p>
+                    <p><em>Depth</em>: <strong>{{ pothole.depth }}mm</strong></p>
+                    <p><em>Severity</em>: <strong>{{ pothole.severity }}</strong></p>
+                    <p><em>Comments</em>: <strong>{{ pothole.comments }}</strong></p>
                     <div class="card orange lighten-4">
                         <div class="card-content indigo-text">
                             <span class="card-title">Council Info</span>
@@ -28,9 +28,11 @@
                             <p><strong>Pothole Status: <em>{{ pothole.pothole_status }}</em></strong></p>
                         </div>
                     </div>
-                    <div>
-                        <a href="{{ url_for('edit_pothole', pothole_id=pothole._id) }}" class="waves-effect waves-light btn-small lime">Edit</a>
-                        <a href="" class="waves-effect waves-light btn-small red">Delete</a>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <a href="{{ url_for('edit_pothole', pothole_id=pothole._id) }}" class="waves-effect waves-light btn-small lime">Edit</a>
+                            <a href="" class="waves-effect waves-light btn-small red">Delete</a>
+                        </div>
                     </div>
                 </div>
             </li>
