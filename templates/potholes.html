@@ -9,7 +9,7 @@
             
         {% for pothole in potholes %}
             <li>
-                <div class="collapsible-header purple white-text">
+                <div class="collapsible-header purple white-text tooltipped" data-position="left" data-tooltip="Click for more info">
                     <i class="material-icons">disc_full</i>
                     <strong><em>{{ pothole.pothole_location }}</em></strong>
                     <span class="new badge orange" data-badge-caption="up votes">{{ pothole.upvotes }}</span>

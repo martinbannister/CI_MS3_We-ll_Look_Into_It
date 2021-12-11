@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     let accords = document.querySelectorAll('.collapsible');
     M.Collapsible.init(accords);
+    var tooltips = document.querySelectorAll('.tooltipped');
+    M.Tooltip.init(tooltips);
   });
 
 function checkRegisterForm(e) {
