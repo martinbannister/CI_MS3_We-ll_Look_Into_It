@@ -7,15 +7,18 @@
 
             <!--  -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix indigo-text text-darken-4">map</i>
-                    <select id="county_name" name="county_name" class="validate indigo-text text-darken-4" required>
-                        <option value="" disabled selected>Choose your preferred County</option>
-                        {% for county in counties %}
-                            <option value="{{ county.county_name }}">{{ county.county_name }}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Preferred County</label>
+                <div class="col s12">
+                    <label for="county_name" class="hide">County</label>
+                    <div class="cust_select">
+                        <i class="material-icons input-field prefix indigo-text text-darken-4">map</i>
+                        <select id="county_name" name="county_name" class="validate indigo-text text-darken-4 browser-default" required>
+                            <option value="" disabled selected>Choose the County</option>
+                            {% for county in counties %}
+                                <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
                 </div>
             </div>
 
