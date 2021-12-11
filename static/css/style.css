@@ -56,7 +56,8 @@ main {
       cursor: pointer;
       line-height: 1.1;
       display: grid;
-      grid-template-areas: "select";
+      grid-template-areas: "sel1 sel2";
+      grid-template-columns: 0px 1fr;
       align-items: center;
       margin-left: 3rem;
   }
@@ -70,12 +71,17 @@ main {
       justify-self: end;
   }
 
-  select, .cust_select::after, .cust_select > i {
-      grid-area: select;
+  .cust_select > i {
+      grid-area: sel1;
+  }
+
+  select, .cust_select::after {
+      grid-area: sel2;
   }
 
   .cust_select > i {
-      left: -3rem;
+      left: -3.35rem;
+      position: relative;
   }
 
   .cust_select > option:not([disabled]) {
@@ -88,7 +94,7 @@ main {
 
 
 /* ----- CUSTOM MATERIALIZE INPUT COLOURS ----- */
-/* REFERENCE:  */
+/* REFERENCE: https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
   /* Active Default input field color */
   .input-field input[type]:focus:not([readonly]),
   .input-field textarea:focus:not([readonly]) {
