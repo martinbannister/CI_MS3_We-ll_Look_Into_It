@@ -21,104 +21,109 @@ body {
 
 main {
     flex: 1 0 auto;
-  }
+}
 
-  strong {
-      font-weight: 700;
-  }
+strong {
+    font-weight: 700;
+}
 
-  /* ----- CUSTOM SELECT INPUT USING ACTUAL input type="select" ----- */
-  /* ----- BASED ON THE REFERENCE BELOW ----- */
-  /* REFERENCE: https://moderncss.dev/custom-select-styles-with-pure-css/ */
-  select {
-      /* Reset styles of default select */
-      appearance: none;
-      background-color: transparent;
-      border: none;
-      padding: 0 1em 0 0;
-      margin: 0;
-      width: 100%;
-      font-family: inherit;
-      font-size: inherit;
-      cursor: inherit;
-      line-height: inherit;
-      outline: none;
-      color: var(--select-border);
-  }
+/* ----- CUSTOM SELECT INPUT USING ACTUAL input type="select" ----- */
+/* ----- BASED ON THE REFERENCE BELOW ----- */
+/* REFERENCE: https://moderncss.dev/custom-select-styles-with-pure-css/ */
+select {
+    /* Reset styles of default select */
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+    color: var(--select-border);
+}
 
-  .cust_select {
-      width: calc(100% - 3rem);
-      border-width: 0 0 1px 0;
-      border-style: solid;
-      border-color: var(--select-border);
-      padding: 0.25em 0.5em;
-      font-size: 16px;
-      cursor: pointer;
-      line-height: 1.1;
-      display: grid;
-      grid-template-areas: "sel1 sel2";
-      grid-template-columns: 0px 1fr;
-      align-items: center;
-      margin-left: 3rem;
-  }
+.cust_select {
+    width: calc(100% - 3rem);
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: var(--select-border);
+    padding: 0.25em 0.5em;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1.1;
+    display: grid;
+    grid-template-areas: "sel1 sel2";
+    grid-template-columns: 0px 1fr;
+    align-items: center;
+    margin-left: 3rem;
+}
 
-  .cust_select::after {
-      content: "";
-      width: 0.8em;
-      height: 0.5em;
-      background-color: var(--select-arrow);
-      clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-      justify-self: end;
-  }
+.cust_select::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    justify-self: end;
+}
 
-  .cust_select > i {
-      grid-area: sel1;
-  }
+.cust_select > i {
+    grid-area: sel1;
+}
 
-  select, .cust_select::after {
-      grid-area: sel2;
-  }
+select, .cust_select::after {
+    grid-area: sel2;
+}
 
-  .cust_select > i {
-      left: -3.35rem;
-      position: relative;
-  }
+.cust_select > i {
+    left: -3.35rem;
+    position: relative;
+}
 
-  .cust_select > option:not([disabled]) {
-    color: var(--indigo);
-  }
+.cust_select > option:not([disabled]) {
+color: var(--indigo);
+}
+/* ----- /CUSTOM SELECT INPUT ----- */
+
+.btn-small {
+    margin-right: 5px;;
+}
 
 .flashes h4 {
-    line-height: 2;
+line-height: 2;
 }
 
 
 /* ----- CUSTOM MATERIALIZE INPUT COLOURS ----- */
 /* REFERENCE: https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
-  /* Active Default input field color */
-  .input-field input[type]:focus:not([readonly]),
-  .input-field textarea:focus:not([readonly]) {
-      border-bottom: 1px solid #7c7d81;
-      box-shadow: 0 1px 0 0 var(--indigo);
-  }
+/* Active Default input field color */
+.input-field input[type]:focus:not([readonly]),
+.input-field textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #7c7d81;
+    box-shadow: 0 1px 0 0 var(--indigo);
+}
 
-  /* Active Default input range color */
-  .input-field input[type="range"]:focus:not([readonly]) {
-      border-bottom: 1px solid var(--indigo);
-      box-shadow: 0 1px 0 0 var(--indigo);
-  }
+/* Active Default input range color */
+.input-field input[type="range"]:focus:not([readonly]) {
+    border-bottom: 1px solid var(--indigo);
+    box-shadow: 0 1px 0 0 var(--indigo);
+}
 
-  input[type=range]+.thumb,
-  input[type=range]::-webkit-slider-thumb {
-      background-color: var(--indigo);
-  }
+input[type=range]+.thumb,
+input[type=range]::-webkit-slider-thumb {
+    background-color: var(--indigo);
+}
 
-  /* Active Default input label color */
-  .input-field input[type]:focus:not([readonly])+label,
-  .input-field textarea:focus:not([readonly])+label {
-      color: var(--indigo);
-  }
+/* Active Default input label color */
+.input-field input[type]:focus:not([readonly])+label,
+.input-field textarea:focus:not([readonly])+label {
+    color: var(--indigo);
+}
 
-  .dropdown-content li>span {
-      color: var(--indigo);
-  }
+.dropdown-content li>span {
+    color: var(--indigo);
+}

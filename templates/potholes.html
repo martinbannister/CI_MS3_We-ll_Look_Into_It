@@ -9,7 +9,7 @@
             
         {% for pothole in potholes %}
             <li>
-                <div class="collapsible-header purple white-text tooltipped" data-position="left" data-tooltip="Click for more info">
+                <div class="collapsible-header hoverable purple white-text tooltipped" data-position="left" data-tooltip="Click for more info">
                     <i class="material-icons">disc_full</i>
                     <strong><em>{{ pothole.pothole_location }}</em></strong>
                     <span class="new badge orange" data-badge-caption="up votes">{{ pothole.upvotes }}</span>
@@ -20,13 +20,17 @@
                     <p>Depth: {{ pothole.depth }}mm</p>
                     <p>Severity: {{ pothole.severity }}</p>
                     <p>Comments: {{ pothole.comments }}</p>
-                    <div class="card hoverable orange lighten-4">
+                    <div class="card orange lighten-4">
                         <div class="card-content indigo-text">
                             <span class="card-title">Council Info</span>
                             <p><strong>Council Comments: <em>{{ pothole.admin_comments }}</em></strong></p>
                             <p><strong>Read Status: <em>{{ pothole.read_status }}</em></strong></p>
                             <p><strong>Pothole Status: <em>{{ pothole.pothole_status }}</em></strong></p>
                         </div>
+                    </div>
+                    <div>
+                        <a href="" class="waves-effect waves-light btn-small lime">Edit</a>
+                        <a href="" class="waves-effect waves-light btn-small red">Delete</a>
                     </div>
                 </div>
             </li>
