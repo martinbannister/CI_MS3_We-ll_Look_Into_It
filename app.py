@@ -18,7 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# ---------------------------- DEFAULT / GET POTHOLES ----------------------------
+# ---------------------------- DEFAULT / GET POTHOLES -------------------------
 @app.route("/")
 @app.route("/get_potholes")
 def get_potholes():
@@ -129,6 +129,15 @@ def add_pothole():
 
     counties = mongo.db.counties.find().sort("county_name", 1)
     return render_template("add_pothole.html", counties=counties)
+
+
+@app.route("/edit_pothole\<pothole_id>", methods=["GET", "POST"])
+def edit_pothole(pothole_id):
+    pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
+
+    counties = mongo.db.counties.find().sort("county_name", 1)
+    return render_template("edit_pothole.html",
+                           pothole=pothole, counties=counties)
 
 
 if __name__ == "__main__":

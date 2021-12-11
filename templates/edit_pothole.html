@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3 class="indigo-text text-darken-4 center-align"><i class="material-icons indigo-text text-darken-4">edit_road</i> Edit Pothole</h3>
+
+    <div class="row card-panel purple lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('edit_pothole', pothole_id=pothole._id) }}">
+
+            <!--  -->
+            <div class="row">
+                <div class="col s12">
+                    <label for="county_name" class="hide">County</label>
+                    <div class="cust_select">
+                        <select id="county_name" name="county_name" class="validate indigo-text text-darken-4 browser-default" required>
+                            <option value="" disabled selected>Choose the County</option>
+                            {% for county in counties %}
+                                <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="material-icons indigo-text text-darken-4">map</i>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- area -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">signpost</i>
+                    <input id="area_name" name="area_name" type="text" class="validate" required>
+                    <label for="area_name">Area*</label>
+                </div>
+            </div>
+
+            <!-- pothole location -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">place</i>
+                    <input id="pothole_location" name="pothole_location" type="text" class="validate" required>
+                    <label for="pothole_location">Pothole Location*</label>
+                </div>
+            </div>
+
+            <!-- depth -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">straighten</i>
+                    <input id="depth" name="depth" type="number" class="validate" required>
+                    <label for="depth">Depth (mm)*</label>
+                </div>
+            </div>
+
+            <!-- photo -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">add_a_photo</i>
+                    <input id="photo" name="photo" type="text">
+                    <label for="photo">Photo</label>
+                </div>
+            </div>
+
+            <!-- severity -->
+            <div class="row">
+                <div class="range-field col s12">
+                    <input id="severity" name="severity" type="range" min="1" max="6" value="1" required>
+                    <label for="severity"> <i class="material-icons prefix indigo-text text-darken-4">priority_high</i>
+                        Severity 1-6 *</label>
+                </div>
+            </div>
+
+            <!-- comments -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">comment</i>
+                    <textarea id="comments" name="comments" rows="4" cols="50" class="materialize-textarea"
+                        data-length="200"></textarea>
+                    <label for="comments">Comments</label>
+                </div>
+            </div>
+
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn-large purple waves-effect waves-light" type="submit">
+                        <i class="material-icons left">save</i>Edit Pothole
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
