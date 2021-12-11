@@ -13,7 +13,11 @@
                         <select id="county_name" name="county_name" class="validate indigo-text text-darken-4 browser-default" required>
                             <option value="" disabled selected>Choose the County</option>
                             {% for county in counties %}
-                                <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                                {% if county.county_name == pothole.county_name %}
+                                    <option value="{{ county.county_name }}" selected>{{ county.county_name }}</option>
+                                {% else %}
+                                    <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                         <i class="material-icons indigo-text text-darken-4">map</i>
@@ -26,7 +30,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix indigo-text text-darken-4">signpost</i>
-                    <input id="area_name" name="area_name" type="text" class="validate" required>
+                    <input value="{{ pothole.area_name }}" id="area_name" name="area_name" type="text" class="validate" required>
                     <label for="area_name">Area*</label>
                 </div>
             </div>
@@ -35,7 +39,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix indigo-text text-darken-4">place</i>
-                    <input id="pothole_location" name="pothole_location" type="text" class="validate" required>
+                    <input value="{{ pothole.pothole_location }}" id="pothole_location" name="pothole_location" type="text" class="validate" required>
                     <label for="pothole_location">Pothole Location*</label>
                 </div>
             </div>
@@ -44,7 +48,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix indigo-text text-darken-4">straighten</i>
-                    <input id="depth" name="depth" type="number" class="validate" required>
+                    <input value="{{ pothole.depth }}" id="depth" name="depth" type="number" class="validate" required>
                     <label for="depth">Depth (mm)*</label>
                 </div>
             </div>
@@ -53,7 +57,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix indigo-text text-darken-4">add_a_photo</i>
-                    <input id="photo" name="photo" type="text">
+                    <input value="{{ pothole.photo }}" id="photo" name="photo" type="text">
                     <label for="photo">Photo</label>
                 </div>
             </div>
@@ -61,7 +65,7 @@
             <!-- severity -->
             <div class="row">
                 <div class="range-field col s12">
-                    <input id="severity" name="severity" type="range" min="1" max="6" value="1" required>
+                    <input value="{{ pothole.severity }}" id="severity" name="severity" type="range" min="1" max="6" value="1" required>
                     <label for="severity"> <i class="material-icons prefix indigo-text text-darken-4">priority_high</i>
                         Severity 1-6 *</label>
                 </div>
@@ -72,7 +76,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix indigo-text text-darken-4">comment</i>
                     <textarea id="comments" name="comments" rows="4" cols="50" class="materialize-textarea"
-                        data-length="200"></textarea>
+                        data-length="200">{{ pothole.comments }}</textarea>
                     <label for="comments">Comments</label>
                 </div>
             </div>
@@ -80,7 +84,10 @@
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button class="btn-large purple waves-effect waves-light" type="submit">
+                    <!-- Cancel button -->
+                    <a href="{{ url_for('get_potholes') }}" class="btn red">Cancel <i class="material-icons left">cancel</i></a>
+                    <!-- Save button -->
+                    <button class="btn purple waves-effect waves-light" type="submit">
                         <i class="material-icons left">save</i>Edit Pothole
                     </button>
                 </div>
