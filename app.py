@@ -131,10 +131,30 @@ def add_pothole():
     return render_template("add_pothole.html", counties=counties)
 
 
+# ---------------------------- EDIT POTHOLE ----------------------------
 @app.route("/edit_pothole\<pothole_id>", methods=["GET", "POST"])
 def edit_pothole(pothole_id):
-    pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
+    if request.method == "POST":
+        submit_pothole = {
+            "created_by": session["user"],
+            "county_name": request.form.get("county_name"),
+            "area_name": request.form.get("area_name"),
+            "pothole_location": request.form.get("pothole_location"),
+            "depth": request.form.get("depth"),
+            "photo": request.form.get("photo"),
+            "severity": request.form.get("severity"),
+            "comments": request.form.get("comments"),
+            "admin_comments": "",
+            "upvotes": 0,
+            "read_status": "unread",
+            "pothole_status": "Pending"
+        }
+        mongo.db.potholes.update_one(
+            {"_id": ObjectId(pothole_id)}, {"$set": submit_pothole})
+        flash("Pothole updated", "flash_success")
+        return redirect(url_for("get_potholes"))
 
+    pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
     counties = mongo.db.counties.find().sort("county_name", 1)
     return render_template("edit_pothole.html",
                            pothole=pothole, counties=counties)
