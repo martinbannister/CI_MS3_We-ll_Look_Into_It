@@ -2,7 +2,14 @@
 {% set counties_nav = "active" %}
 
 {% block content %}
-<h3 class="indigo-text text-darken-4 center-align">Manage Counties</h3>
+<div class="row">
+    <h3 class="indigo-text text-darken-4 center-align">Manage Counties
+        <a href="{{ url_for('add_county') }}" class="btn-floating btn-large waves-effect waves-light purple lighten-3 right">
+            <i class="material-icons">add</i>
+        </a>
+    </h3>
+</div>
+
 
 <div class="row">
     {% for county in counties %}

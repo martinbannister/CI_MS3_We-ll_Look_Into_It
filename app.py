@@ -186,6 +186,21 @@ def get_counties():
     return render_template("counties.html", counties=counties)
 
 
+@app.route("/add_county", methods=["GET", "POST"])
+def add_county():
+    if request.method == "POST":
+        county = {
+            "county_name": request.form.get("county_name"),
+            "primary_colour": request.form.get("primary_colour"),
+            "logo_url": request.form.get("logo_url")
+        }
+        mongo.db.counties.insert_one(county)
+        flash("New County Added", "flash_success")
+        return redirect(url_for("get_counties"))
+
+    return render_template("add_county.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
