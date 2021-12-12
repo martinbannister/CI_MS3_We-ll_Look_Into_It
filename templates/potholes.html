@@ -13,6 +13,7 @@
                     <i class="material-icons">disc_full</i>
                     <strong><em>{{ pothole.pothole_location }}</em></strong>
                     <span class="new badge orange" data-badge-caption="up votes">{{ pothole.upvotes }}</span>
+                    <a href="{{ url_for('upvote_pothole', pothole_id=pothole._id) }}" class="orange-text"><i class="material-icons">plus_one</i></a>
                 </div>
                 <div class="collapsible-body white-text purple lighten-1">
                     <p><em>County</em>: <strong>{{ pothole.county_name }}</strong></p>
@@ -29,10 +30,14 @@
                         </div>
                     </div>
                     {%  if session.user|lower == pothole.created_by|lower %}
+                    <!-- show edit and delete buttons only for the pothole creator user -->
                         <div class="row">
                             <div class="col s12 center-align">
                                 <a href="{{ url_for('edit_pothole', pothole_id=pothole._id) }}" class="waves-effect waves-light btn-small lime">Edit</a>
-                                <a href="" class="waves-effect waves-light btn-small red">Delete</a>
+                                {% if pothole.read_status == 'unread' %}
+                                <!-- only show the delete button if the pothole hasn't been read by an admin -->
+                                    <a href="{{ url_for('delete_pothole', pothole_id=pothole._id) }}" class="waves-effect waves-light btn-small red">Delete</a>
+                                {% endif %}
                             </div>
                         </div>
                     {% endif %}
