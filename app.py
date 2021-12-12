@@ -132,7 +132,7 @@ def add_pothole():
 
 
 # ---------------------------- EDIT POTHOLE ----------------------------
-@app.route("/edit_pothole\<pothole_id>", methods=["GET", "POST"])
+@app.route("/edit_pothole/<pothole_id>", methods=["GET", "POST"])
 def edit_pothole(pothole_id):
     if request.method == "POST":
         submit_pothole = {
@@ -143,21 +143,47 @@ def edit_pothole(pothole_id):
             "depth": request.form.get("depth"),
             "photo": request.form.get("photo"),
             "severity": request.form.get("severity"),
-            "comments": request.form.get("comments"),
-            "admin_comments": "",
-            "upvotes": 0,
-            "read_status": "unread",
-            "pothole_status": "Pending"
+            "comments": request.form.get("comments")
         }
         mongo.db.potholes.update_one(
             {"_id": ObjectId(pothole_id)}, {"$set": submit_pothole})
         flash("Pothole updated", "flash_success")
-        return redirect(url_for("get_potholes"))
 
     pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
     counties = mongo.db.counties.find().sort("county_name", 1)
     return render_template("edit_pothole.html",
                            pothole=pothole, counties=counties)
+
+
+# ---------------------------- DELETE POTHOLE ----------------------------
+@app.route("/delete_pothole/<pothole_id>")
+def delete_pothole(pothole_id):
+    mongo.db.potholes.delete_one({"_id": ObjectId(pothole_id)})
+    flash("Pothole successfully deleted", "flash_success")
+    return redirect(url_for("get_potholes"))
+
+
+# ---------------------------- UPVOTE ----------------------------
+# Allows a user to upvote a pothole
+# currently allows multiple votes per user
+@app.route("/upvote_pothole/<pothole_id>")
+def upvote_pothole(pothole_id):
+    pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
+    current_votes = pothole['upvotes']
+    new_votes = current_votes+1
+    update_pothole = {
+        "upvotes": new_votes
+    }
+    mongo.db.potholes.update_one(
+        {"_id": ObjectId(pothole_id)}, {"$set": update_pothole})
+    flash("Your vote has been registered", "flash_success")
+    return redirect(url_for("get_potholes"))
+
+
+@app.route("/get_counties")
+def get_counties():
+    counties = list(mongo.db.counties.find().sort("county_name", 1))
+    return render_template("counties.html", counties=counties)
 
 
 if __name__ == "__main__":

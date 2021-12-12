@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h3 class="indigo-text text-darken-4 center-align">Manage Counties</h3>
+
+<div class="row">
+    {% for county in counties %}
+        <div class="col s12 m4">
+        <div class="card purple darken-4">
+            <div class="card-content white-text">
+            <span class="card-title">{{ county.county_name }}</span>
+            <p>Primary Colour: {{ county.primary_colour }}</p>
+            </div>
+            <div class="card-action">
+            <a href="#" class="waves-effect waves-light btn-small lime">Edit</a>
+            <a href="#" class="waves-effect waves-light btn-small red">Delete</a>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+  </div>
+{% endblock %}

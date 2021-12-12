@@ -38,7 +38,7 @@
                                 <li><a href="">Pothole Statuses</a></li>
                                 <li><a href="">Users</a></li>
                                 {% if session.user == 'martin' %}
-                                    <li><a href="">Counties</a></li>
+                                    <li><a href="{{ url_for('get_counties') }}">Counties</a></li>
                                 {% endif %}
                             {% endif %}
                         {% else %}
@@ -61,7 +61,7 @@
                         <li><a href="">Pothole Statuses</a></li>
                         <li><a href="">Users</a></li>
                         {% if session.user == 'martin' %}
-                            <li><a href="">Counties</a></li>
+                            <li><a href="{{ url_for('get_counties') }}">Counties</a></li>
                         {% endif %}
                     {% endif %}
                 {% else %}
@@ -82,11 +82,11 @@
                             <i class="large material-icons">admin_panel_settings</i>
                         </a>
                         <ul>
-                            <li><a class="btn-small red">Users<i class="material-icons">people</i></a></li>
-                            <li><a class="btn-small yellow darken-1">Areas<i class="material-icons">signpost</i></a></li>
-                            <li><a class="btn-small green">Pothole Statuses<i class="material-icons">fact_check</i></a></li>
+                            <li><a class="btn-small red">Users</a><i class="material-icons">people</i></li>
+                            <li><a class="btn-small yellow darken-1">Areas</a><i class="material-icons">signpost</i></li>
+                            <li><a class="btn-small green">Pothole Statuses</a><i class="material-icons">fact_check</i></li>
                             {% if session.user == 'martin' %}
-                                <li><a class="btn-small blue">Counties<i class="material-icons">map</i></a></li>
+                                <li><a href="{{ url_for('get_counties') }}" class="btn-small blue">Counties</a><i class="material-icons">map</i></li>
                             {% endif %}
                         </ul>
                     </div>
