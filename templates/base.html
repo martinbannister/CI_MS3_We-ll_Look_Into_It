@@ -23,27 +23,28 @@
 
         <header>
             <nav>
+                {% set active_page = active_page|default('') %}
                 <div class="nav-wrapper purple text-white">
                     <a href="{{ url_for('get_potholes') }}" class="brand-logo right">We'll Look Into It</a>
                     <a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="left hide-on-med-and-down">
-                        <li class="active"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
+                        <li class="{{ potholes_nav }}"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                         {% if session.user %}
-                            <li><a href="{{ url_for('add_pothole') }}">Add Pothole</a></li>
-                            <li><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
-                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            <li class="{{ add_pothole_nav }}"><a href="{{ url_for('add_pothole') }}">Add Pothole</a></li>
+                            <li class="{{ profile_nav }}"><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
+                            <li class="{{ logout_nav }}"><a href="{{ url_for('logout') }}">Log Out</a></li>
                             <!-- if user is admin -->
                             {% if session.admin %}
-                                <li><a href="">Areas</a></li>
-                                <li><a href="">Pothole Statuses</a></li>
-                                <li><a href="">Users</a></li>
+                                <li class="{{ areas_nav }}"><a href="">Areas</a></li>
+                                <li class="{{ statuses_nav }}"><a href="">Pothole Statuses</a></li>
+                                <li class="{{ users_nav }}"><a href="">Users</a></li>
                                 {% if session.user == 'martin' %}
-                                    <li><a href="{{ url_for('get_counties') }}">Counties</a></li>
+                                    <li class="{{ counties_nav }}"><a href="{{ url_for('get_counties') }}">Counties</a></li>
                                 {% endif %}
                             {% endif %}
                         {% else %}
-                            <li><a href="{{ url_for('login') }}">Log In</a></li>
-                            <li><a href="{{ url_for('register') }}">Register</a></li>
+                            <li class="{{ login_nav }}"><a href="{{ url_for('login') }}">Log In</a></li>
+                            <li class="{{ register_nav }}"><a href="{{ url_for('register') }}">Register</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -51,24 +52,25 @@
 
             <ul class="sidenav" id="mobile-sidenav">
                 <li><h4 class="center-align">We'll Look Into It</h4></li>
-                {% if session.user %}
-                    <li><a href="{{ url_for('add_pothole') }}">Add Pothole</a></li>
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
-                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                    <!-- if user is admin -->
-                    {% if session.admin %}
-                        <li><a href="">Areas</a></li>
-                        <li><a href="">Pothole Statuses</a></li>
-                        <li><a href="">Users</a></li>
-                        {% if session.user == 'martin' %}
-                            <li><a href="{{ url_for('get_counties') }}">Counties</a></li>
+                        <li class="{{ potholes_nav }}"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
+                        {% if session.user %}
+                            <li class="{{ add_pothole_nav }}"><a href="{{ url_for('add_pothole') }}">Add Pothole</a></li>
+                            <li class="{{ profile_nav }}"><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
+                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            <!-- if user is admin -->
+                            {% if session.admin %}
+                                <li class="{{ areas_nav }}"><a href="">Areas</a></li>
+                                <li class="{{ statuses_nav }}"><a href="">Pothole Statuses</a></li>
+                                <li class="{{ users_nav }}"><a href="">Users</a></li>
+                                {% if session.user == 'martin' %}
+                                    <li class="{{ counties_nav }}"><a href="{{ url_for('get_counties') }}">Counties</a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% else %}
+                            <li class="{{ login_nav }}"><a href="{{ url_for('login') }}">Log In</a></li>
+                            <li class="{{ register_nav }}"><a href="{{ url_for('register') }}">Register</a></li>
                         {% endif %}
-                    {% endif %}
-                {% else %}
-                    <li><a href="{{ url_for('login') }}">Log In</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
-                {% endif %}
-            </ul>
+                    </ul>
         </header>
 
 
