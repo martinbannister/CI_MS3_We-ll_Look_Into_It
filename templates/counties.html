@@ -20,7 +20,7 @@
             <p>Primary Colour: {{ county.primary_colour }}</p>
             </div>
             <div class="card-action">
-            <a href="#" class="waves-effect waves-light btn-small lime">Edit</a>
+            <a href="{{ url_for('edit_county', county_id=county._id) }}" class="waves-effect waves-light btn-small lime">Edit</a>
             <a href="#" class="waves-effect waves-light btn-small red">Delete</a>
             </div>
         </div>

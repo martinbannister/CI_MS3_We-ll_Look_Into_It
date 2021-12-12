@@ -201,6 +201,12 @@ def add_county():
     return render_template("add_county.html")
 
 
+@app.route("/edit_county/<county_id>", methods=["GET", "POST"])
+def edit_county(county_id):
+    county = mongo.db.counties.find_one({"_id": ObjectId(county_id)})
+    return render_template("edit_county.html", county=county)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
