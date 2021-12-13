@@ -89,6 +89,79 @@ color: var(--indigo);
 }
 /* ----- /CUSTOM SELECT INPUT ----- */
 
+
+/* ----- CUSTOM INPUT RANGE SLIDER ----- */
+/* ----- BASED ON THE REFERENCE BELOW ----- */
+/* REFERENCE: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+
+.slidercontainer {
+    width: calc(100% - 3rem);
+    border-width: 0 0 0 0;
+    border-style: solid;
+    border-color: var(--select-border);
+    padding: 0.25em 0.5em;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1.1;
+    display: grid;
+    grid-template-areas: "a1 a2"
+                         "b1 b2"
+                         "c1 c2";
+    grid-template-columns: 0px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    margin-left: 3rem;
+}
+
+.slidercontainer input {
+    -webkit-appearance: auto;  /* restore default CSS styles */
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+    color: var(--select-border);
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    grid-area: b2;
+}
+
+.slidercontainer input:hover {
+    opacity: 1;
+}
+
+.slidercontainer > label {
+    grid-area: a2;
+    font-size: 1rem;
+}
+
+.slidercontainer > i {
+    grid-area: b1;
+    left: -3.35rem;
+    position: relative;
+}
+
+.slidercontainer > .thumb {
+    grid-area: b2;
+}
+
+datalist {
+    grid-area: c2;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--indigo);
+  }
+
+/* ----- /CUSTOM RANGE SLIDER ----- */
+
 .btn-small {
     margin-right: 5px;;
 }
