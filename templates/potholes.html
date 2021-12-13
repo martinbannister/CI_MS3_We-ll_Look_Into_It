@@ -35,17 +35,17 @@
                     <a href="{{ url_for('upvote_pothole', pothole_id=pothole._id) }}" class="orange-text"><i class="material-icons">plus_one</i></a>
                 </div>
                 <div class="collapsible-body white-text purple lighten-1">
-                    <p><em>County</em>: <strong>{{ pothole.county_name }}</strong></p>
-                    <p><em>Area</em>: <strong>{{ pothole.area_name }}</strong></p>
-                    <p><em>Depth</em>: <strong>{{ pothole.depth }}mm</strong></p>
-                    <p><em>Severity</em>: <strong>{{ pothole.severity }}</strong></p>
-                    <p><em>Comments</em>: <strong>{{ pothole.comments }}</strong></p>
+                    <p><em>County</em>: <strong>{{ pothole.county_name }}</strong><br />
+                    <em>Area</em>: <strong>{{ pothole.area_name }}</strong><br />
+                    <em>Depth</em>: <strong>{{ pothole.depth }}mm</strong><br />
+                    <em>Severity</em>: <strong>{{ pothole.severity }}</strong><br />
+                    <em>Comments</em>: <strong>{{ pothole.comments }}</strong></p>
                     <div class="card orange lighten-4">
                         <div class="card-content indigo-text">
                             <span class="card-title">Council Info</span>
-                            <p><strong>Council Comments: <em>{{ pothole.admin_comments }}</em></strong></p>
-                            <p><strong>Read Status: <em>{{ pothole.read_status }}</em></strong></p>
-                            <p><strong>Pothole Status: <em>{{ pothole.pothole_status }}</em></strong></p>
+                            <p><strong>Council Comments: <em>{{ pothole.admin_comments }}</em></strong><br />
+                            <strong>Read Status: <em>{{ pothole.read_status }}</em></strong><br />
+                            <strong>Pothole Status: <em>{{ pothole.pothole_status }}</em></strong></p>
                         </div>
                     </div>
                     {%  if session.user|lower == pothole.created_by|lower %}
