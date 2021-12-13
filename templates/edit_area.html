@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3 class="cyan-text text-darken-4 center-align">Edit Area</h3>
+
+    <div class="row card-panel cyan lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('edit_area', area_id=area._id) }}">
+
+            <!-- county -->
+            <div class="row">
+                <div class="col s12">
+                    <label for="county_name" class="hide">County</label>
+                    <div class="cust_select">
+                        <select id="county_name" name="county_name" class="validate cyan-text text-darken-4 browser-default" required>
+                            <option value="" disabled selected>Choose the County this Area is in</option>
+                            {% for county in counties %}
+                                {% if county.county_name == area.county_name %}
+                                    <option value="{{ county.county_name }}" selected>{{ county.county_name }}</option>
+                                {% else %}
+                                    <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <i class="material-icons cyan-text text-darken-4">map</i>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Area -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix cyan-text text-darken-4">signpost</i>
+                    <input id="area_name" name="area_name" value="{{ area.area_name }}" type="text" class="validate" required>
+                    <label for="area_name">Area Name</label>
+                </div>
+            </div>
+
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a href="{{ url_for('get_areas') }}" class="btn-large indigo darken-4">
+                        Cancel <i class="material-icons left">cancel</i>
+                    </a>
+                    <button class="btn-large cyan waves-effect waves-light" type="submit">
+                        Save Area<i class="material-icons right">save</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
