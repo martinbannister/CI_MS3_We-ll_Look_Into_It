@@ -31,8 +31,9 @@ def get_potholes():
 # ---------------------------- POTHOLE SEARCH -------------------------
 @app.route("/pothole_search", methods=["GET", "POST"])
 def pothole_search():
-    query = request.form.get("pothole_query")
-    potholes = list(mongo.db.potholes.find({"$text": {"$search": query}}))
+    search_query = request.form.get("pothole_query")
+    potholes = list(mongo.db.potholes.find(
+        {"$text": {"$search": search_query}}))
     return render_template("potholes.html", potholes=potholes)
 
 
