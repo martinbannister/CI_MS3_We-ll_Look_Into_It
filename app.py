@@ -249,6 +249,31 @@ def delete_county(county_id):
     return redirect(url_for("get_counties"))
 
 
+# ---------------------------------------------------------------------------
+# ---------------------------- AREA FEATURES ----------------------------
+
+# ---------------------------- GET AREAS ----------------------------
+@app.route("/get_areas")
+def get_areas():
+    areas = list(mongo.db.areas.find().sort("county_name", 1))
+    return render_template("areas.html", areas=areas)
+
+
+# ---------------------------- ADD AREA ----------------------------
+@app.route("/add_area", methods=["GET", "POST"])
+def add_area():
+    if request.method == "POST":
+        area = {
+            "area_name": request.form.get("area_name"),
+            "county_name": request.form.get("county_name")
+        }
+        mongo.db.counties.insert_one(area)
+        flash("New County Added", "flash_success")
+        return redirect(url_for("get_counties"))
+
+    return render_template("add_area.html")
+
+
 # ----------------------------  ----------------------------
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
