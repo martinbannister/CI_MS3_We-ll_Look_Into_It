@@ -69,16 +69,16 @@
                 {% block content %}
                 {% endblock %}
                 {% if session.admin %}
-                    <div class="fixed-action-btn">
+                    <div class="fixed-action-btn toolbar">
                         <a class="btn-floating btn-large purple">
                             <i class="large material-icons">admin_panel_settings</i>
                         </a>
                         <ul>
-                            <li><a class="btn-small red">Users</a><i class="material-icons">people</i></li>
-                            <li><a class="btn-small yellow darken-1">Areas</a><i class="material-icons">signpost</i></li>
-                            <li><a class="btn-small green">Pothole Statuses</a><i class="material-icons">fact_check</i></li>
+                            <li><a class="waves-effect waves-light"><i class="material-icons left">people</i> Users</a></li>
+                            <li><a class="waves-effect waves-light"><i class="material-icons left">signpost</i> Areas</a></li>
+                            <li><a class="waves-effect waves-light"><i class="material-icons left">fact_check</i>Pothole Status'</a></li>
                             {% if session.user == 'martin' %}
-                                <li><a href="{{ url_for('get_counties') }}" class="btn-small blue">Counties</a><i class="material-icons">map</i></li>
+                            <li><a href="{{ url_for('get_counties') }}" class="waves-effect waves-light"><i class="material-icons left">map</i>Counties</a></li>
                             {% endif %}
                         </ul>
                     </div>

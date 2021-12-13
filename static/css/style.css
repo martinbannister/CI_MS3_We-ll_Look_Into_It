@@ -170,6 +170,17 @@ line-height: 2;
 }
 
 
+/* ----- CUSTOM MATERIALIZE FAB TOOLBAR ----- */
+/* -- DERIVED BT EXPERIMENTATION IN DEV TOOLS -- */
+.fixed-action-btn.toolbar ul {
+    justify-content: space-evenly;
+}
+
+.fixed-action-btn.toolbar ul li {
+    flex: 0 1 auto;
+}
+
+
 /* ----- CUSTOM MATERIALIZE INPUT COLOURS ----- */
 /* REFERENCE: https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
 /* Active Default input field color */
