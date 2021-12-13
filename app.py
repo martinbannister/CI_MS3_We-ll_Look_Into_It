@@ -120,9 +120,9 @@ def add_pothole():
             "county_name": request.form.get("county_name"),
             "area_name": request.form.get("area_name"),
             "pothole_location": request.form.get("pothole_location"),
-            "depth": request.form.get("depth"),
+            "depth": int(request.form.get("depth")),
             "photo": request.form.get("photo"),
-            "severity": request.form.get("severity"),
+            "severity": int(request.form.get("severity")),
             "comments": request.form.get("comments"),
             "admin_comments": "",
             "upvotes": 0,
@@ -146,9 +146,9 @@ def edit_pothole(pothole_id):
             "county_name": request.form.get("county_name"),
             "area_name": request.form.get("area_name"),
             "pothole_location": request.form.get("pothole_location"),
-            "depth": request.form.get("depth"),
+            "depth": int(request.form.get("depth")),
             "photo": request.form.get("photo"),
-            "severity": request.form.get("severity"),
+            "severity": int(request.form.get("severity")),
             "comments": request.form.get("comments")
         }
         mongo.db.potholes.update_one(
