@@ -276,6 +276,25 @@ def add_area():
     return render_template("add_area.html", counties=counties)
 
 
+# ---------------------------- EDIT AREA ----------------------------
+@app.route("/edit_area/<area_id>", methods=["GET", "POST"])
+def edit_area(area_id):
+    if request.method == "POST":
+        submit_area = {
+            "county_name": request.form.get("county_name"),
+            "area_name": request.form.get("area_name")
+        }
+        mongo.db.areas.update_one({"_id": ObjectId(
+            area_id)}, {"$set": submit_area})
+        flash("Area successfully updated", "flash_success")
+        return redirect(url_for("get_areas"))
+
+    area = mongo.db.areas.find_one({"_id": ObjectId(area_id)})
+    # get counties to pass to add area to popuplate counties select
+    counties = mongo.db.counties.find().sort("county_name", 1)
+    return render_template("edit_area.html", area=area, counties=counties)
+
+
 # ----------------------------  ----------------------------
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
