@@ -1,9 +1,11 @@
 from itertools import count
 import os
+import re
 from flask import (Flask, flash, render_template, redirect,
                    request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from pymongo.message import query
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -23,6 +25,14 @@ mongo = PyMongo(app)
 @app.route("/get_potholes")
 def get_potholes():
     potholes = list(mongo.db.potholes.find())
+    return render_template("potholes.html", potholes=potholes)
+
+
+# ---------------------------- POTHOLE SEARCH -------------------------
+@app.route("/pothole_search", methods=["GET", "POST"])
+def pothole_search():
+    query = request.form.get("pothole_query")
+    potholes = list(mongo.db.potholes.find({"$text": {"$search": query}}))
     return render_template("potholes.html", potholes=potholes)
 
 
