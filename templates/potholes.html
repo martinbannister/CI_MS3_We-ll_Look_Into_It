@@ -54,8 +54,20 @@
                             <div class="col s12 center-align">
                                 <a href="{{ url_for('edit_pothole', pothole_id=pothole._id) }}" class="waves-effect waves-light btn-small lime black-text">Edit</a>
                                 {% if pothole.read_status == 'unread' %}
-                                <!-- only show the delete button if the pothole hasn't been read by an admin -->
-                                    <a href="{{ url_for('delete_pothole', pothole_id=pothole._id) }}" class="waves-effect waves-light btn-small red black-text">Delete</a>
+                                <!-- only show the delete button & modal if the pothole hasn't been read by an admin -->
+                                    <!-- Modal Trigger -->
+                                    <button data-target="delete_confirm" class="btn modal-trigger">Delete</button>
+                                    <!-- Modal Structure -->
+                                    <div id="delete_confirm" class="modal">
+                                        <div class="modal-content left-align purple-text text-darken-4">
+                                            <h4>Delete This Pothole!</h4>
+                                            <p>Are you sure?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{{ url_for('delete_pothole', pothole_id=pothole._id) }}" class="waves-effect waves-light btn-small red black-text">Yes, Delete</a>
+                                            <button class="modal-close btn waves-effect waves-light purple darken-4">No, Close</button>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </div>
                         </div>

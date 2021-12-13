@@ -1,16 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // SIDENAV
     let sidenav = document.querySelectorAll('.sidenav');
     M.Sidenav.init(sidenav);
+
+    // FLOATING ACTION BUTTONS
     let FABs = document.querySelectorAll('.fixed-action-btn');
     M.FloatingActionButton.init(FABs, {toolbarEnabled: true});
+
+    // SELECT BOXES
     let selectElems = document.querySelectorAll('select');
+    // IF used to prevent errors in browser console
     if (selectElems) {
       M.FormSelect.init(selectElems);
     }
+
+    // ACCORDIANS/COLLAPSIBLES
     let accords = document.querySelectorAll('.collapsible');
     M.Collapsible.init(accords);
-    var tooltips = document.querySelectorAll('.tooltipped');
+
+    // TOOLTIPS
+    let tooltips = document.querySelectorAll('.tooltipped');
     M.Tooltip.init(tooltips);
+
+    // MODALS
+    let modals = document.querySelectorAll('.modal');
+    M.Modal.init(modals);
   });
 
 function checkRegisterForm(e) {
