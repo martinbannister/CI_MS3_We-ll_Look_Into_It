@@ -267,11 +267,13 @@ def add_area():
             "area_name": request.form.get("area_name"),
             "county_name": request.form.get("county_name")
         }
-        mongo.db.counties.insert_one(area)
-        flash("New County Added", "flash_success")
-        return redirect(url_for("get_counties"))
+        mongo.db.areas.insert_one(area)
+        flash("New Area Added", "flash_success")
+        return redirect(url_for("get_areas"))
 
-    return render_template("add_area.html")
+    # get counties to pass to add area to popuplate counties select
+    counties = mongo.db.counties.find().sort("county_name", 1)
+    return render_template("add_area.html", counties=counties)
 
 
 # ----------------------------  ----------------------------
