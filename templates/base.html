@@ -23,7 +23,6 @@
 
         <header>
             <nav>
-                {% set active_page = active_page|default('') %}
                 <div class="nav-wrapper purple text-white">
                     <a href="{{ url_for('get_potholes') }}" class="brand-logo right">We'll Look Into It</a>
                     <a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -33,15 +32,6 @@
                             <li class="{{ add_pothole_nav }}"><a href="{{ url_for('add_pothole') }}">Add Pothole</a></li>
                             <li class="{{ profile_nav }}"><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
                             <li class="{{ logout_nav }}"><a href="{{ url_for('logout') }}">Log Out</a></li>
-                            <!-- if user is admin -->
-                            {% if session.admin %}
-                                <li class="{{ areas_nav }}"><a href="">Areas</a></li>
-                                <li class="{{ statuses_nav }}"><a href="">Pothole Statuses</a></li>
-                                <li class="{{ users_nav }}"><a href="">Users</a></li>
-                                {% if session.user == 'martin' %}
-                                    <li class="{{ counties_nav }}"><a href="{{ url_for('get_counties') }}">Counties</a></li>
-                                {% endif %}
-                            {% endif %}
                         {% else %}
                             <li class="{{ login_nav }}"><a href="{{ url_for('login') }}">Log In</a></li>
                             <li class="{{ register_nav }}"><a href="{{ url_for('register') }}">Register</a></li>
