@@ -26,6 +26,9 @@ def get_potholes():
     return render_template("potholes.html", potholes=potholes)
 
 
+# -----------------------------------------------------------------------
+# ---------------------------- USER FEATURES ----------------------------
+
 # ---------------------------- REGISTER ----------------------------
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -105,6 +108,9 @@ def logout():
     return redirect(url_for("login"))
 
 
+# --------------------------------------------------------------------------
+# ---------------------------- POTHOLE FEATURES ----------------------------
+
 # ---------------------------- ADD POTHOLE ----------------------------
 @app.route("/add_pothole", methods=["GET", "POST"])
 def add_pothole():
@@ -180,12 +186,17 @@ def upvote_pothole(pothole_id):
     return redirect(url_for("get_potholes"))
 
 
+# ---------------------------------------------------------------------------
+# ---------------------------- COUNTIES FEATURES ----------------------------
+
+# ---------------------------- GET COUNTIES ----------------------------
 @app.route("/get_counties")
 def get_counties():
     counties = list(mongo.db.counties.find().sort("county_name", 1))
     return render_template("counties.html", counties=counties)
 
 
+# ---------------------------- ADD COUNTY ----------------------------
 @app.route("/add_county", methods=["GET", "POST"])
 def add_county():
     if request.method == "POST":
@@ -201,6 +212,7 @@ def add_county():
     return render_template("add_county.html")
 
 
+# ---------------------------- EDIT COUNTY ----------------------------
 @app.route("/edit_county/<county_id>", methods=["GET", "POST"])
 def edit_county(county_id):
     if request.method == "POST":
@@ -209,7 +221,8 @@ def edit_county(county_id):
             "primary_colour": request.form.get("primary_colour"),
             "logo_url": request.form.get("logo_url")
         }
-        mongo.db.counties.update_one({"_id": ObjectId(county_id)}, {"$set": submit_county})
+        mongo.db.counties.update_one({"_id": ObjectId(
+            county_id)}, {"$set": submit_county})
         flash("County successfully updated", "flash_success")
         return redirect(url_for("get_counties"))
 
@@ -217,6 +230,7 @@ def edit_county(county_id):
     return render_template("edit_county.html", county=county)
 
 
+# ---------------------------- DELETE COUNTY ----------------------------
 @app.route("/delete_county/<county_id>")
 def delete_county(county_id):
     mongo.db.counties.delete_one({"_id", ObjectId(county_id)})
@@ -224,6 +238,7 @@ def delete_county(county_id):
     return redirect(url_for("get_counties"))
 
 
+# ----------------------------  ----------------------------
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
