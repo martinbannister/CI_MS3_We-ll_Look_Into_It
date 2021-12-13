@@ -295,6 +295,14 @@ def edit_area(area_id):
     return render_template("edit_area.html", area=area, counties=counties)
 
 
+# ---------------------------- DELETE AREA ----------------------------
+@app.route("/delete_area/<area_id>")
+def delete_area(area_id):
+    mongo.db.areas.delete_one({"_id", ObjectId(area_id)})
+    flash("Area Deleted", "flash_success")
+    return redirect(url_for("get_areas"))
+
+
 # ----------------------------  ----------------------------
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
