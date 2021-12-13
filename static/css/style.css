@@ -114,7 +114,7 @@ color: var(--indigo);
 }
 
 .slidercontainer input {
-    -webkit-appearance: auto;  /* restore default CSS styles */
+    -webkit-appearance: none;  /* remove default CSS styles */
     appearance: none;
     background-color: transparent;
     border: none;
