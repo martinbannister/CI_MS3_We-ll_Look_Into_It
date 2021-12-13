@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% set counties_nav = "active" %}
+
+{% block content %}
+<div class="row">
+    <h3 class="indigo-text text-darken-4 center-align">Manage Areas
+        <a href="{{ url_for('add_area') }}" class="btn-floating btn-large waves-effect waves-light cyan darken-4 right">
+            <i class="material-icons">add</i>
+        </a>
+    </h3>
+</div>
+
+
+<div class="row">
+    {% for area in areas %}
+        <div class="col s12 m4">
+        <div class="card cyan darken-4">
+            <div class="card-content white-text">
+            <span class="card-title">{{ area.area_name }}</span>
+            <p>County Name: {{ area.county_name }}</p>
+            </div>
+            <div class="card-action">
+            <a href="" class="waves-effect waves-light btn-small lime black-text">Edit</a>
+            <a href="" class="waves-effect waves-light btn-small red black-text">Delete</a>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -75,7 +75,7 @@
                         </a>
                         <ul>
                             <li><a class="waves-effect waves-light"><i class="material-icons left">people</i> Users</a></li>
-                            <li><a class="waves-effect waves-light"><i class="material-icons left">signpost</i> Areas</a></li>
+                            <li><a href="{{ url_for('get_areas') }}" class="waves-effect waves-light"><i class="material-icons left">signpost</i> Areas</a></li>
                             <li><a class="waves-effect waves-light"><i class="material-icons left">fact_check</i>Pothole Status'</a></li>
                             {% if session.user == 'martin' %}
                             <li><a href="{{ url_for('get_counties') }}" class="waves-effect waves-light"><i class="material-icons left">map</i>Counties</a></li>
