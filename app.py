@@ -217,6 +217,13 @@ def edit_county(county_id):
     return render_template("edit_county.html", county=county)
 
 
+@app.route("/delete_county/<county_id>")
+def delete_county(county_id):
+    mongo.db.counties.delete_one({"_id", ObjectId(county_id)})
+    flash("County Deleted", "flash_success")
+    return redirect(url_for("get_counties"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
