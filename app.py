@@ -244,7 +244,7 @@ def edit_county(county_id):
 # ---------------------------- DELETE COUNTY ----------------------------
 @app.route("/delete_county/<county_id>")
 def delete_county(county_id):
-    mongo.db.counties.delete_one({"_id", ObjectId(county_id)})
+    mongo.db.counties.delete_one({"_id": ObjectId(county_id)})
     flash("County Deleted", "flash_success")
     return redirect(url_for("get_counties"))
 
@@ -298,7 +298,7 @@ def edit_area(area_id):
 # ---------------------------- DELETE AREA ----------------------------
 @app.route("/delete_area/<area_id>")
 def delete_area(area_id):
-    mongo.db.areas.delete_one({"_id", ObjectId(area_id)})
+    mongo.db.areas.delete_one({"_id": ObjectId(area_id)})
     flash("Area Deleted", "flash_success")
     return redirect(url_for("get_areas"))
 
