@@ -203,6 +203,16 @@ def add_county():
 
 @app.route("/edit_county/<county_id>", methods=["GET", "POST"])
 def edit_county(county_id):
+    if request.method == "POST":
+        submit_county = {
+            "county_name": request.form.get("county_name"),
+            "primary_colour": request.form.get("primary_colour"),
+            "logo_url": request.form.get("logo_url")
+        }
+        mongo.db.counties.update_one({"_id": ObjectId(county_id)}, {"$set": submit_county})
+        flash("County successfully updated", "flash_success")
+        return redirect(url_for("get_counties"))
+
     county = mongo.db.counties.find_one({"_id": ObjectId(county_id)})
     return render_template("edit_county.html", county=county)
 
