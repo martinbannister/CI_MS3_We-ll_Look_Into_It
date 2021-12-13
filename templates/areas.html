@@ -21,7 +21,20 @@
             </div>
             <div class="card-action">
             <a href="{{ url_for('edit_area', area_id=area._id) }}" class="waves-effect waves-light btn-small lime black-text">Edit</a>
-            <a href="" class="waves-effect waves-light btn-small red black-text">Delete</a>
+            <!-- Modal to confirm deletion -->
+            <!-- Modal Trigger -->
+            <button data-target="delete_confirm{{ loop.index }}" class="btn modal-trigger">Delete</button>
+            <!-- Modal Structure -->
+            <div id="delete_confirm{{ loop.index }}" class="modal cyan lighten-5">
+                <div class="modal-content left-align cyan-text text-darken-4">
+                    <h4>Delete This Area!</h4>
+                    <p>Are you sure?</p>
+                </div>
+                <div class="modal-footer cyan lighten-4">
+                    <a href="{{ url_for('delete_area', area_id=area._id) }}" class="waves-effect waves-light btn-small red black-text">Yes, Delete</a>
+                    <button class="modal-close btn waves-effect waves-light cyan darken-4">No, Close</button>
+                </div>
+            </div>
             </div>
         </div>
         </div>
