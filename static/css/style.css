@@ -180,6 +180,16 @@ line-height: 2;
     flex: 0 1 auto;
 }
 
+/* ----- CUSTOMISE MATERIALIZE valign-wrapper ----- */
+.valign-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.overide-m-left {
+    margin-left: 0;
+}
+
 
 /* ----- CUSTOM MATERIALIZE INPUT COLOURS ----- */
 /* REFERENCE: https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
