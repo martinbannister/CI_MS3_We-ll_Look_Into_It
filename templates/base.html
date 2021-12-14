@@ -29,7 +29,6 @@
                     <ul class="left hide-on-med-and-down">
                         <li class="{{ potholes_nav }}"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                         {% if session.user %}
-                            <li class="{{ add_pothole_nav }}"><a href="{{ url_for('add_pothole') }}">Add Pothole</a></li>
                             <li class="{{ profile_nav }}"><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
                             <li class="{{ logout_nav }}"><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
@@ -44,7 +43,6 @@
                 <li><h4 class="center-align">We'll Look Into It</h4></li>
                         <li class="{{ potholes_nav }}"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                         {% if session.user %}
-                            <li class="{{ add_pothole_nav }}"><a href="{{ url_for('add_pothole') }}">Add Pothole</a></li>
                             <li class="{{ profile_nav }}"><a href="{{ url_for('profile', username=session['user']) }}">Your Profile</a></li>
                             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                             <!-- if user is admin -->
@@ -90,17 +88,10 @@
             <div class="container">
                 <div class="row">
                   <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <h5 class="white-text">We'll Look Into It</h5>
                   </div>
                   <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                      <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                      <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                      <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                      <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
+                    <p class="grey-text text-lighten-4">A pothole reporting system for use by any council</p>
                   </div>
                 </div>
               </div>
