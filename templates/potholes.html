@@ -37,8 +37,8 @@
             
         {% for pothole in potholes %}
             <li>
-                <div class="collapsible-header hoverable purple white-text tooltipped" data-position="left" data-tooltip="Click for more info">
-                    <i class="material-icons">disc_full</i>
+                <div class="collapsible-header hoverable purple white-text">
+                    <i class="material-icons tooltipped" data-position="left" data-tooltip="Click for more info">disc_full</i>
                     <strong><em>{{ pothole.pothole_location }}</em></strong>
                     <span class="new badge orange" data-badge-caption="up votes">{{ pothole.upvotes }}</span>
                     <a href="{{ url_for('upvote_pothole', pothole_id=pothole._id) }}" class="orange-text"><i class="material-icons">plus_one</i></a>
