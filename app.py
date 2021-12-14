@@ -333,19 +333,16 @@ def add_status():
 @app.route("/edit_status/<status_id>", methods=["GET", "POST"])
 def edit_status(status_id):
     if request.method == "POST":
-        submit_area = {
-            "county_name": request.form.get("county_name"),
-            "area_name": request.form.get("area_name")
+        submit_status = {
+            "pothole_status": request.form.get("pothole_status")
         }
-        mongo.db.areas.update_one({"_id": ObjectId(
-            area_id)}, {"$set": submit_area})
-        flash("Area successfully updated", "flash_success")
-        return redirect(url_for("get_areas"))
+        mongo.db.pothole_statuses.update_one({"_id": ObjectId(
+            status_id)}, {"$set": submit_status})
+        flash("Status successfully updated", "flash_success")
+        return redirect(url_for("get_status"))
 
-    area = mongo.db.areas.find_one({"_id": ObjectId(area_id)})
-    # get counties to pass to add area to popuplate counties select
-    counties = mongo.db.counties.find().sort("county_name", 1)
-    return render_template("edit_area.html", area=area, counties=counties)
+    status = mongo.db.pothole_statuses.find_one({"_id": ObjectId(status_id)})
+    return render_template("edit_status.html", status=status)
 
 
 # ---------------------------- DELETE STATUS ----------------------------
