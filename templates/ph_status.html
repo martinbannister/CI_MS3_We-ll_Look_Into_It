@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="row">
-    <h3 class="cyan-text text-darken-4 center-align">Manage Status'
-        <a href="{{ url_for('add_status') }}" class="btn-floating btn-large waves-effect waves-light cyan darken-4 right">
+    <h3 class="blue-text text-darken-4 center-align">Manage Status'
+        <a href="{{ url_for('add_status') }}" class="btn-floating btn-large waves-effect waves-light blue darken-4 right">
             <i class="material-icons">add</i>
         </a>
     </h3>
@@ -13,7 +13,7 @@
 <div class="row">
     {% for status in statuses %}
         <div class="col s12 m4">
-        <div class="card cyan darken-4">
+        <div class="card blue darken-4">
             <div class="card-content white-text">
             <span class="card-title">{{ status.pothole_status }}</span>
             </div>
@@ -23,14 +23,14 @@
             <!-- Modal Trigger -->
             <button data-target="delete_confirm{{ loop.index }}" class="btn modal-trigger">Delete</button>
             <!-- Modal Structure -->
-            <div id="delete_confirm{{ loop.index }}" class="modal cyan lighten-5">
-                <div class="modal-content left-align cyan-text text-darken-4">
+            <div id="delete_confirm{{ loop.index }}" class="modal blue lighten-5">
+                <div class="modal-content left-align blue-text text-darken-4">
                     <h4>Delete This Status!</h4>
                     <p>Are you sure?</p>
                 </div>
-                <div class="modal-footer cyan lighten-4">
+                <div class="modal-footer blue lighten-4">
                     <a href="{{ url_for('delete_status', status_id=status._id) }}" class="waves-effect waves-light btn-small red black-text">Yes, Delete</a>
-                    <button class="modal-close btn waves-effect waves-light cyan darken-4">No, Close</button>
+                    <button class="modal-close btn waves-effect waves-light blue darken-4">No, Close</button>
                 </div>
             </div>
             </div>
