@@ -305,6 +305,60 @@ def delete_area(area_id):
     return redirect(url_for("get_areas"))
 
 
+# ---------------------------------------------------------------------------
+# ---------------------------- STATUS FEATURES ----------------------------
+
+# ---------------------------- GET STATUS' ----------------------------
+@app.route("/get_status")
+def get_status():
+    statuses = list(mongo.db.pothole_statuses.find().sort("pothole_status", 1))
+    return render_template("ph_status.html", statuses=statuses)
+
+
+# ---------------------------- ADD STATUS ----------------------------
+@app.route("/add_status", methods=["GET", "POST"])
+def add_status():
+    if request.method == "POST":
+        area = {
+            "area_name": request.form.get("area_name"),
+            "county_name": request.form.get("county_name")
+        }
+        mongo.db.areas.insert_one(area)
+        flash("New Area Added", "flash_success")
+        return redirect(url_for("get_areas"))
+
+    # get counties to pass to add area to popuplate counties select
+    counties = mongo.db.counties.find().sort("county_name", 1)
+    return render_template("add_area.html", counties=counties)
+
+
+# ---------------------------- EDIT STATUS ----------------------------
+@app.route("/edit_status/<status_id>", methods=["GET", "POST"])
+def edit_status(status_id):
+    if request.method == "POST":
+        submit_area = {
+            "county_name": request.form.get("county_name"),
+            "area_name": request.form.get("area_name")
+        }
+        mongo.db.areas.update_one({"_id": ObjectId(
+            area_id)}, {"$set": submit_area})
+        flash("Area successfully updated", "flash_success")
+        return redirect(url_for("get_areas"))
+
+    area = mongo.db.areas.find_one({"_id": ObjectId(area_id)})
+    # get counties to pass to add area to popuplate counties select
+    counties = mongo.db.counties.find().sort("county_name", 1)
+    return render_template("edit_area.html", area=area, counties=counties)
+
+
+# ---------------------------- DELETE STATUS ----------------------------
+@app.route("/delete_status/<status_id>")
+def delete_status(status_id):
+    mongo.db.areas.delete_one({"_id": ObjectId(area_id)})
+    flash("Area Deleted", "flash_success")
+    return redirect(url_for("get_areas"))
+
+
 # ----------------------------  ----------------------------
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
