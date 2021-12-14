@@ -348,9 +348,9 @@ def edit_status(status_id):
 # ---------------------------- DELETE STATUS ----------------------------
 @app.route("/delete_status/<status_id>")
 def delete_status(status_id):
-    mongo.db.areas.delete_one({"_id": ObjectId(area_id)})
-    flash("Area Deleted", "flash_success")
-    return redirect(url_for("get_areas"))
+    mongo.db.pothole_statuses.delete_one({"_id": ObjectId(status_id)})
+    flash("Status Deleted", "flash_success")
+    return redirect(url_for("get_status"))
 
 
 # ----------------------------  ----------------------------
