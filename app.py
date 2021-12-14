@@ -319,17 +319,14 @@ def get_status():
 @app.route("/add_status", methods=["GET", "POST"])
 def add_status():
     if request.method == "POST":
-        area = {
-            "area_name": request.form.get("area_name"),
-            "county_name": request.form.get("county_name")
+        status = {
+            "pothole_status": request.form.get("pothole_status")
         }
-        mongo.db.areas.insert_one(area)
-        flash("New Area Added", "flash_success")
-        return redirect(url_for("get_areas"))
+        mongo.db.pothole_statuses.insert_one(status)
+        flash("New Status Added", "flash_success")
+        return redirect(url_for("get_status"))
 
-    # get counties to pass to add area to popuplate counties select
-    counties = mongo.db.counties.find().sort("county_name", 1)
-    return render_template("add_area.html", counties=counties)
+    return render_template("add_status.html")
 
 
 # ---------------------------- EDIT STATUS ----------------------------
