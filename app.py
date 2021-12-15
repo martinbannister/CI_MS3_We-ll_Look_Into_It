@@ -58,12 +58,15 @@ def register():
             "fullname": request.form.get("fullname"),
             "password": generate_password_hash(request.form.get("password")),
             "primary_county": request.form.get("primary_county"),
-            "admin": False
+            "admin": False,
+            "master_admin": False
         }
         mongo.db.users.insert_one(register)
 
         # put the new users into 'session' cookie
         session["user"] = request.form.get("username").lower()
+        session["admin"] = False
+        session["master_admin"] = False
         flash("You have successfully registered", "flash_success")
         return redirect(url_for("profile", username=session["user"]))
 
