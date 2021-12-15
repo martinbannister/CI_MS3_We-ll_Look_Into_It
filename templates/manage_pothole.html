@@ -4,12 +4,12 @@
     <h3 class="indigo-text text-darken-4 center-align">Manage Pothole</h3>
 
     <div class="row card-panel purple lighten-5">
-        <p>{{ pothole.county_name }}</p>
-        <p>{{ pothole.area_name }}</p>
-        <p>{{ pothole.pothole_location }}</p>
-        <p>{{ pothole.depth }}</p>
-        <p>{{ pothole.severity }}/6</p>
-        <p>{{ pothole.comments }}</p>
+        <p><em>County: </em><strong>{{ pothole.county_name }}</strong></p>
+        <p><em>Area: </em><strong>{{ pothole.area_name }}</strong></p>
+        <p><em>Location: </em><strong>{{ pothole.pothole_location }}</strong></p>
+        <p><em>Depth (mm): </em><strong>{{ pothole.depth }}</strong></p>
+        <p><em>Severity: </em><strong>{{ pothole.severity }}/6</strong></p>
+        <p><em>Comments: </em><strong>{{ pothole.comments }}</strong></p>
     </div>
 
     <div class="row card-panel orange lighten-4">
@@ -46,10 +46,10 @@
             <div class="row">
                 <div class="col s12 center-align">
                     <!-- Close button -->
-                    <a href="{{ url_for('get_potholes') }}" class="btn red">Close <i class="material-icons left">close</i></a>
+                    <a href="{{ url_for('get_potholes') }}" class="btn red"><i class="material-icons left">close</i>Close</a>
                     <!-- Save button -->
                     <button class="btn purple waves-effect waves-light" type="submit">
-                        <i class="material-icons left">save</i>Update Pothole
+                        <i class="material-icons left">save</i>Save
                     </button>
                 </div>
             </div>
