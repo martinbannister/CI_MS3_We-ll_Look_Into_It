@@ -114,16 +114,15 @@
         <script src="{{ url_for('static', filename='js/script.js') }}"></script>
         <script>
             // flash messages
-            // trying to render as Materialize toasts
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
+            // render as Materialize toasts
+            // jinja template code commented out to eliminate JavaScript errors reported in code editor
+            // {% with messages = get_flashed_messages(with_categories=true) %}
+            //     {% if messages %}
+            //         {% for category, message in messages %}
                             flash_toast('{{ message }}', '{{ category }}');
-                    {% endfor %}
-                {% else %}
-                            console.log('no flash message received');
-                {% endif %}
-            {% endwith %}
+            //         {% endfor %}
+            //     {% endif %}
+            // {% endwith %}
         </script>
         {% block scripts %}
         {% endblock %}
