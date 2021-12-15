@@ -50,7 +50,7 @@
                                 <li class="{{ areas_nav }}"><a href="">Areas</a></li>
                                 <li class="{{ statuses_nav }}"><a href="">Pothole Statuses</a></li>
                                 <li class="{{ users_nav }}"><a href="">Users</a></li>
-                                {% if session.user == 'martin' %}
+                                {% if session.master_admin %}
                                     <li class="{{ counties_nav }}"><a href="{{ url_for('get_counties') }}">Counties</a></li>
                                 {% endif %}
                             {% endif %}
@@ -75,7 +75,7 @@
                             <li><a href="{{ url_for('users') }}" class="waves-effect waves-light"><i class="material-icons left">people</i> Users</a></li>
                             <li><a href="{{ url_for('get_areas') }}" class="waves-effect waves-light"><i class="material-icons left">signpost</i> Areas</a></li>
                             <li><a href="{{ url_for('get_status') }}" class="waves-effect waves-light"><i class="material-icons left">fact_check</i>Pothole Status'</a></li>
-                            {% if session.user == 'martin' %}
+                            {% if session.master_admin %}
                             <li><a href="{{ url_for('get_counties') }}" class="waves-effect waves-light"><i class="material-icons left">map</i>Counties</a></li>
                             {% endif %}
                         </ul>
