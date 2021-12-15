@@ -29,9 +29,11 @@
                     <ul class="left hide-on-med-and-down">
                         <li class="{{ potholes_nav }}"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
                         {% if session.user %}
+                            <!-- if user is logged in -->
                             <li class="{{ profile_nav }}"><a href="{{ url_for('profile') }}">Your Profile</a></li>
-                            <li class="{{ logout_nav }}"><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
+                            <!-- if no user is logged in -->
                             <li class="{{ login_nav }}"><a href="{{ url_for('login') }}">Log In</a></li>
                             <li class="{{ register_nav }}"><a href="{{ url_for('register') }}">Register</a></li>
                         {% endif %}
@@ -45,15 +47,6 @@
                         {% if session.user %}
                             <li class="{{ profile_nav }}"><a href="{{ url_for('profile') }}">Your Profile</a></li>
                             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                            <!-- if user is admin -->
-                            {% if session.admin %}
-                                <li class="{{ areas_nav }}"><a href="">Areas</a></li>
-                                <li class="{{ statuses_nav }}"><a href="">Pothole Statuses</a></li>
-                                <li class="{{ users_nav }}"><a href="">Users</a></li>
-                                {% if session.master_admin %}
-                                    <li class="{{ counties_nav }}"><a href="{{ url_for('get_counties') }}">Counties</a></li>
-                                {% endif %}
-                            {% endif %}
                         {% else %}
                             <li class="{{ login_nav }}"><a href="{{ url_for('login') }}">Log In</a></li>
                             <li class="{{ register_nav }}"><a href="{{ url_for('register') }}">Register</a></li>
@@ -66,6 +59,8 @@
             <div class="container">
                 {% block content %}
                 {% endblock %}
+                <!-- FLOATING action button for admin features -->
+                <!-- if user in an admin -->
                 {% if session.admin %}
                     <div class="fixed-action-btn toolbar">
                         <a class="btn-floating btn-large purple darken-4">
@@ -75,6 +70,7 @@
                             <li><a href="{{ url_for('users') }}" class="waves-effect waves-light"><i class="material-icons left">people</i> Users</a></li>
                             <li><a href="{{ url_for('get_areas') }}" class="waves-effect waves-light"><i class="material-icons left">signpost</i> Areas</a></li>
                             <li><a href="{{ url_for('get_status') }}" class="waves-effect waves-light"><i class="material-icons left">fact_check</i>Pothole Status'</a></li>
+                            <!-- if user is a master admin -->
                             {% if session.master_admin %}
                             <li><a href="{{ url_for('get_counties') }}" class="waves-effect waves-light"><i class="material-icons left">map</i>Counties</a></li>
                             {% endif %}
