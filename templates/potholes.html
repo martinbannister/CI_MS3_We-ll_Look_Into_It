@@ -60,8 +60,9 @@
                     <span class="new badge orange" data-badge-caption="up votes">{{ pothole.upvotes }}</span>
                     {% if session["user"] %}
                         <a href="{{ url_for('upvote_pothole', pothole_id=pothole._id) }}" class="orange-text"><i class="material-icons">plus_one</i></a>
-                    {% endif %}
+                    {% else %}
                         <a href="#" class="orange-text tooltipped" data-position="bottom" data-tooltip="Please, register to upvote"><i class="material-icons">plus_one</i></a>
+                    {% endif %}
                 </div>
                 <div class="collapsible-body white-text purple lighten-1">
                     <p><em>County</em>: <strong>{{ pothole.county_name }}</strong><br />
