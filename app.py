@@ -234,6 +234,10 @@ def manage_pothole(pothole_id):
         mongo.db.potholes.update_one(
             {"_id": ObjectId(pothole_id)}, {"$set": submit_pothole})
         flash("Pothole updated", "flash_success")
+    elif request.method == "GET":
+        # mark pothole as read when it's opened
+        mongo.db.potholes.update_one(
+            {"_id": ObjectId(pothole_id)}, {"$set": {"read_status": "read"}})
 
     statuses = mongo.db.pothole_statuses.find().sort(
         "pothole_status", pymongo.ASCENDING)
