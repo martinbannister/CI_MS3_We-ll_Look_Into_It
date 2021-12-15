@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3 class="indigo-text text-darken-4 center-align">Manage Pothole</h3>
+
+    <div class="row card-panel purple lighten-5">
+        <p>{{ pothole.county_name }}</p>
+        <p>{{ pothole.area_name }}</p>
+        <p>{{ pothole.pothole_location }}</p>
+        <p>{{ pothole.depth }}</p>
+        <p>{{ pothole.severity }}/6</p>
+        <p>{{ pothole.comments }}</p>
+    </div>
+
+    <div class="row card-panel orange lighten-4">
+        <form class="col s12" method="POST" action="{{ url_for('manage_pothole', pothole_id=pothole._id) }}">
+
+            <!-- admin comments -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix indigo-text text-darken-4">comment</i>
+                    <textarea id="admin_comments" name="admin_comments" rows="4" cols="50" class="materialize-textarea"
+                        data-length="200">{{ pothole.admin_comments }}</textarea>
+                    <label for="admin_comments">Comments</label>
+                </div>
+            </div>
+
+            <!-- pothole status -->
+            <div class="row">
+                <div class="col s12">
+                    <label for="pothole_status" class="hide">Pothole Status</label>
+                    <div class="cust_select">
+                        <select id="pothole_status" name="pothole_status" class="validate indigo-text text-darken-4 browser-default" required>
+                            <option value="" disabled selected>Set the pothole status</option>
+                            {% for status in statuses %}
+                                    <option value="{{ status.pothole_status }}" {% if status.pothole_status == pothole.pothole_status %}selected{% endif %}>{{ status.pothole_status }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="material-icons indigo-text text-darken-4">fact_check</i>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <!-- Close button -->
+                    <a href="{{ url_for('get_potholes') }}" class="btn red">Close <i class="material-icons left">close</i></a>
+                    <!-- Save button -->
+                    <button class="btn purple waves-effect waves-light" type="submit">
+                        <i class="material-icons left">save</i>Update Pothole
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

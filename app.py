@@ -223,6 +223,31 @@ def edit_pothole(pothole_id):
                            pothole=pothole, counties=counties)
 
 
+# ---------------------------- MANAGE POTHOLE ----------------------------
+@app.route("/manage_pothole/<pothole_id>", methods=["GET", "POST"])
+def manage_pothole(pothole_id):
+    if request.method == "POST":
+        submit_pothole = {
+            "created_by": session["user"],
+            "county_name": request.form.get("county_name"),
+            "area_name": request.form.get("area_name"),
+            "pothole_location": request.form.get("pothole_location"),
+            "depth": int(request.form.get("depth")),
+            "photo": request.form.get("photo"),
+            "severity": int(request.form.get("severity")),
+            "comments": request.form.get("comments")
+        }
+        mongo.db.potholes.update_one(
+            {"_id": ObjectId(pothole_id)}, {"$set": submit_pothole})
+        flash("Pothole updated", "flash_success")
+
+    statuses = mongo.db.pothole_statuses.find().sort(
+        "pothole_status", pymongo.ASCENDING)
+    pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
+    return render_template("manage_pothole.html",
+                           pothole=pothole, statuses=statuses)
+
+
 # ---------------------------- DELETE POTHOLE ----------------------------
 @app.route("/delete_pothole/<pothole_id>")
 def delete_pothole(pothole_id):

@@ -102,6 +102,15 @@
                             </div>
                         </div>
                     {% endif %}
+                    <!-- feature for council to update potholes -->
+                    {% if session.admin %}
+                        <!-- show open button only to admin users -->
+                        <div class="row">
+                            <div class="col s12 center-align">
+                                <a href="{{ url_for('manage_pothole', pothole_id=pothole._id) }}" class="waves-effect waves-light btn-small blue black-text">Open</a>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </li>
         {% endfor %}
