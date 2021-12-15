@@ -2,9 +2,11 @@
 
 ## Code Institute Milestone 3 Project
 
-[The Live Website]() ![We'll Look Into It Logo](docs/assets/wlii_logo_small.png)
+[The Live Website](https://ci-ms3-we-ll-look-into-it.herokuapp.com/)
 
-![mockup]()
+![We'll Look Into It Logo](docs/assets/images/wlii_logo_small.png)
+
+![mockup](docs/assets/images/mockup.png)
 
 ## Table of Contents
 
@@ -119,10 +121,10 @@ Master Admin account features:
 10. Add, Edit and Delete Pothole status'.
 11. Revoke user admin privileges.
 
-### Design
+## Design
 
-#### Colour Scheme
+### Colour Scheme
 
-#### Typography
+### Typography
 
-#### Images
+### Images
