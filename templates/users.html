@@ -1,19 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-<ul id="users_menu" class="sidenav">
+<ul id="users_menu" class="sidenav purple-text text-darken-4">
     <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li><h4 class="center-align">Users</h4></li>
+        <ul class="collapsible collapsible-accordion purple-text text-darken-4">
+            <li>
+                <h4 class="center-align">
+                    <i class="material-icons">people</i> Users
+                </h4>
+            </li>
             <li><div class="divider"></div></li>
             {% for county in counties %}
                 <li>
-                    <a class="collapsible-header">{{ county.county_name }}<i class="material-icons">arrow_drop_down</i></a>
+                    <a class="collapsible-header purple-text text-darken-4">{{ county.county_name }}<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                         <ul>
                             {% for user in users %}
                                 {% if user.primary_county == county.county_name %}
-                                    <li><a href="#!">{{ user.fullname }}</a></li>
+                                    <li><a href="{{ url_for('users', user_id=user._id) }}" class="purple-text text-darken-4">{{ user.fullname }}</a></li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
@@ -23,6 +27,64 @@
         </ul>
     </li>
   </ul>
-  <a href="#" data-target="users_menu" class="sidenav-trigger btn purple"><i class="material-icons left">people</i> Users</a>
+  <div class="row">
+      <div class="col s12">
+          <a href="#" data-target="users_menu" class="sidenav-trigger btn purple"><i class="material-icons left">people</i> Show Users</a>
+      </div>
+  </div>
+  <div class="row card purple lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('edit_user') }}">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix purple-text text-darken-4">account_circle</i>
+                <input id="fullname" name="fullname" value="{{ cur_user.fullname }}" type="text" class="validate" disabled>
+                <label for="fullname">Fullname</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <label for="is_admin">
+                        Admin:
+                        {% if cur_user.admin %}
+                            <input type="checkbox" id="is_admin" name="is_admin" checked>
+                        {% else %}
+                            <input type="checkbox" id="is_admin" name="is_admin">
+                        {% endif %}
+                        <span class="lever"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        {% if master_admin %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <div class="switch">
+                    <label for="is_master_admin">
+                    Master Admin:
+                    {% if master_admin %}
+                        <input type="checkbox" id="is_master_admin" name="is_master_admin" checked>
+                    {% else %}
+                        <input type="checkbox" id="is_master_admin" name="is_master_admin">
+                    {% endif %}
+                    <span class="lever"></span>
+                    </label>
+                </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('users') }}" class="btn-large indigo darken-4">
+                    Cancel <i class="material-icons left">cancel</i>
+                </a>
+                <button class="btn-large blue waves-effect waves-light" type="submit">
+                    Save User<i class="material-icons right">save</i>
+                </button>
+            </div>
+        </div>
+    </form>
+  </div>
+
 
 {% endblock %}
