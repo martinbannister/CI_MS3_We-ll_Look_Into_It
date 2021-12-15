@@ -107,18 +107,18 @@ def login():
 # ---------------------------- PROFILE PAGE ----------------------------
 @app.route("/profile/", methods=["GET", "POST"])
 def profile():
-    
+
     if session.get("user"):
         # if there is a logged in user retrieve their pothole reports
         if session["user"]:
             # get the session users username & fullname from the database
             user = mongo.db.users.find_one({"username": session["user"]},
-                                    ["username", "fullname"])
+                                           ["username", "fullname"])
             users_potholes = mongo.db.potholes.find(
-                                                {"created_by": user["username"]})
+                                            {"created_by": user["username"]})
             # pass user dictionary and user potholes to profile page
             return render_template("profile.html", user=user,
-                                users_potholes=users_potholes)
+                                   users_potholes=users_potholes)
 
     return redirect(url_for("login"))
 
