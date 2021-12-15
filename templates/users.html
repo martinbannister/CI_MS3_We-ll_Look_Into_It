@@ -32,8 +32,8 @@
           <a href="#" data-target="users_menu" class="sidenav-trigger btn purple"><i class="material-icons left">people</i> Show Users</a>
       </div>
   </div>
-  <div class="row card purple lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('edit_user') }}">
+  <div class="row card-panel purple lighten-5">
+    <form class="col s12" method="POST" action="">
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix purple-text text-darken-4">account_circle</i>
@@ -56,13 +56,13 @@
                 </div>
             </div>
         </div>
-        {% if master_admin %}
+        {% if session_user.master_admin %}
             <div class="row">
                 <div class="input-field col s12">
                     <div class="switch">
                     <label for="is_master_admin">
                     Master Admin:
-                    {% if master_admin %}
+                    {% if cur_user.master_admin %}
                         <input type="checkbox" id="is_master_admin" name="is_master_admin" checked>
                     {% else %}
                         <input type="checkbox" id="is_master_admin" name="is_master_admin">
