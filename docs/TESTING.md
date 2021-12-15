@@ -34,5 +34,10 @@
 2. to be able to easily submit a pothole report.
     - View this being tested in this [video](assets/videos/testing_potholes_add.webm)
 
+---
+
+0. Add pothole status option
+    - View this being tested in this [video](assets/videos/testing_potholes_add.webm)
+
 ### Browser Compatibility
 ## Bugs found and resolved during development
