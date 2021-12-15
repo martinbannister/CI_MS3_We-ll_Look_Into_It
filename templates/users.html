@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<ul id="users_menu" class="sidenav sidenav-fixed">
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="#!">Second Sidebar Link</a></li>
+<ul id="users_menu" class="sidenav">
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
+            <li><h4 class="center-align">Users</h4></li>
+            <li><div class="divider"></div></li>
             {% for county in counties %}
                 <li>
-                    <a class="collapsible-header">{{ county.name }}<i class="material-icons">arrow_drop_down</i></a>
+                    <a class="collapsible-header">{{ county.county_name }}<i class="material-icons">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                         <ul>
                             {% for user in users %}
-                                <li><a href="#!">{{ user.fullname }}</a></li>
+                                {% if user.primary_county == county.county_name %}
+                                    <li><a href="#!">{{ user.fullname }}</a></li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                     </div>
@@ -21,17 +23,6 @@
         </ul>
     </li>
   </ul>
-  <ul class="right hide-on-med-and-down">
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="#!">Second Sidebar Link</a></li>
-    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><a href="#!">First</a></li>
-      <li><a href="#!">Second</a></li>
-      <li><a href="#!">Third</a></li>
-      <li><a href="#!">Fourth</a></li>
-    </ul>
-  </ul>
-  <a href="#" data-target="users_menu" class="sidenav-trigger"><i class="material-icons">people</i></a>
+  <a href="#" data-target="users_menu" class="sidenav-trigger btn purple"><i class="material-icons left">people</i> Users</a>
 
 {% endblock %}

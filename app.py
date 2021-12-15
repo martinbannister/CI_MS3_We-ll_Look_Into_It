@@ -5,6 +5,7 @@ from flask import (Flask, flash, render_template, redirect,
                    request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import pymongo
 from pymongo.message import query
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -122,6 +123,25 @@ def logout():
     flash("You have successfully logged out", "flash_info")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+# ---------------------------- USER MANAGEMENT ----------------------------
+@app.route("/users")
+@app.route("/users/<user_id>")
+def users(user_id=None):
+    if user_id:
+        cur_user = mongo.db.users.find_one({"_id": ObjectId(user_id)},
+                                           ["fullname",
+                                            "admin",
+                                            "master_admin"])
+
+    users = list(mongo.db.users.find().sort([("primary_county", pymongo.ASCENDING),
+                                        ("fullname", pymongo.ASCENDING)]))
+    counties = list(mongo.db.counties.find().sort("county_name", pymongo.ASCENDING))
+    return render_template("users.html",
+                           users=users,
+                           counties=counties,
+                           cur_user=cur_user if user_id else None)
 
 
 # --------------------------------------------------------------------------
