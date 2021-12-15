@@ -63,7 +63,7 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        # put the new users into 'session' cookie
+        # put the new user into 'session' cookie & default to non-admin
         session["user"] = request.form.get("username").lower()
         session["admin"] = False
         session["master_admin"] = False
@@ -107,17 +107,18 @@ def login():
 # ---------------------------- PROFILE PAGE ----------------------------
 @app.route("/profile/", methods=["GET", "POST"])
 def profile():
-    # get the session users username & fullname from the database
-    user = mongo.db.users.find_one({"username": session["user"]},
-                                   ["username", "fullname"])
-
-    # if there is a logged in user retrueve their pothole reports
-    if session["user"]:
-        users_potholes = mongo.db.potholes.find(
-                                            {"created_by": user["username"]})
-        # pass user dictionary and user potholes to profile page
-        return render_template("profile.html", user=user,
-                               users_potholes=users_potholes)
+    
+    if session.get("user"):
+        # if there is a logged in user retrieve their pothole reports
+        if session["user"]:
+            # get the session users username & fullname from the database
+            user = mongo.db.users.find_one({"username": session["user"]},
+                                    ["username", "fullname"])
+            users_potholes = mongo.db.potholes.find(
+                                                {"created_by": user["username"]})
+            # pass user dictionary and user potholes to profile page
+            return render_template("profile.html", user=user,
+                                users_potholes=users_potholes)
 
     return redirect(url_for("login"))
 
@@ -127,6 +128,8 @@ def profile():
 def logout():
     flash("You have successfully logged out", "flash_info")
     session.pop("user")
+    session.pop("admin")
+    session.pop("master_admin")
     return redirect(url_for("login"))
 
 
@@ -290,16 +293,22 @@ def get_counties():
 @app.route("/add_county", methods=["GET", "POST"])
 def add_county():
     if request.method == "POST":
-        county = {
-            "county_name": request.form.get("county_name"),
-            "primary_colour": request.form.get("primary_colour"),
-            "logo_url": request.form.get("logo_url")
-        }
-        mongo.db.counties.insert_one(county)
-        flash("New County Added", "flash_success")
-        return redirect(url_for("get_counties"))
+        # check if user is authorised to do this
+        if session["master_admin"]:
+            county = {
+                "county_name": request.form.get("county_name"),
+                "primary_colour": request.form.get("primary_colour"),
+                "logo_url": request.form.get("logo_url")
+            }
+            mongo.db.counties.insert_one(county)
+            flash("New County Added", "flash_success")
+            return redirect(url_for("get_counties"))
 
-    return render_template("add_county.html")
+    if session["master_admin"]:
+        return render_template("add_county.html")
+    else:
+        flash("You are not authorised to access this page", "flash_error")
+        return redirect(url_for("get_potholes"))
 
 
 # ---------------------------- EDIT COUNTY ----------------------------
@@ -334,8 +343,13 @@ def delete_county(county_id):
 # ---------------------------- GET AREAS ----------------------------
 @app.route("/get_areas")
 def get_areas():
-    areas = list(mongo.db.areas.find().sort("county_name", 1))
-    return render_template("areas.html", areas=areas)
+    if session.get("admin"):
+        if session["admin"]:
+            areas = list(mongo.db.areas.find().sort("county_name", 1))
+            return render_template("areas.html", areas=areas)
+    else:
+        flash("You are not authorised to access this page", "flash_error")
+        return redirect(url_for("get_potholes"))
 
 
 # ---------------------------- ADD AREA ----------------------------
