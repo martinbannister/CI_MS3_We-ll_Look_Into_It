@@ -134,7 +134,8 @@ def users(user_id=None):
                                            ["fullname",
                                             "admin",
                                             "master_admin"])
-
+    master_admin = mongo.db.users.find_one({"username": session["user"]},
+                                           "master_admin")
     users = list(mongo.db.users.find().sort([
                                              ("primary_county",
                                               pymongo.ASCENDING),
@@ -145,6 +146,7 @@ def users(user_id=None):
     return render_template("users.html",
                            users=users,
                            counties=counties,
+                           master_admin=master_admin,
                            cur_user=cur_user if user_id else None)
 
 
