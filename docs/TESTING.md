@@ -38,6 +38,9 @@
 
 0. Add pothole status option
     - View this being tested in this [video](assets/videos/testing_status_add.webm.mov)
+https://user-images.githubusercontent.com/78867133/146281282-7fe12068-12bb-45e7-8d93-4c4561f30dd4.mp4
 
 ### Browser Compatibility
 ## Bugs found and resolved during development
+
+
