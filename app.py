@@ -192,8 +192,11 @@ def add_pothole():
         flash("Pothole submitted for review", "flash_success")
         return redirect(url_for("get_potholes"))
 
-    counties = mongo.db.counties.find().sort("county_name", 1)
-    return render_template("add_pothole.html", counties=counties)
+    counties = list(mongo.db.counties.find().sort("county_name", 1))
+    areas = list(mongo.db.areas.find().sort([
+        ("county_name", pymongo.ASCENDING),
+        ("area_name", pymongo.ASCENDING)]))
+    return render_template("add_pothole.html", counties=counties, areas=areas)
 
 
 # ---------------------------- EDIT POTHOLE ----------------------------

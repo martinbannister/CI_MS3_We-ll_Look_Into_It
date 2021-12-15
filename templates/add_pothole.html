@@ -19,16 +19,22 @@
                         </select>
                         <i class="material-icons indigo-text text-darken-4">map</i>
                     </div>
-                    
                 </div>
             </div>
 
             <!-- area -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix indigo-text text-darken-4">signpost</i>
-                    <input id="area_name" name="area_name" type="text" class="validate" required>
-                    <label for="area_name">Area*</label>
+                <div class="col s12">
+                    <label for="area_name" class="hide">Area</label>
+                    <div class="cust_select">
+                        <select id="area_name" name="area_name" class="validate indigo-text text-darken-4 browser-default" required>
+                            <option value="" disabled selected>Choose the Area</option>
+                            {% for area in areas %}
+                                <option value="{{ area.area_name }}">{{ area.area_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <i class="material-icons indigo-text text-darken-4">signpost</i>
+                    </div>
                 </div>
             </div>
 
