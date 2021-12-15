@@ -10,15 +10,16 @@
 
 <!-- search feature -->
 <div class="container center">
-        <div class="card purple lighten-5">
-            <div class="row">
+        <div class="card-panel purple lighten-5">
+            <div>
                 <form action="{{ url_for('pothole_search') }}" method="POST" class="col s12">
-                    <div class="row valign-wrapper">
-                        <div class="input-field col s12 m12 l7 overide-m-left">
+                    <!-- the .row div below has inline style as this is a one off change for this search box alone -->
+                    <div class="row valign-wrapper" style="margin-bottom: 0;">
+                        <div class="input-field col s12 m12 l12 xl6 overide-m-left">
                             <input type="text" name="pothole_query" id="pothole_query" required>
                             <label for="pothole_query"><i class="material-icons">search</i></label>
                         </div>
-                        <div class="col s12 m12 l5 overide-m-left">
+                        <div class="col s12 m12 l12 xl6 overide-m-left">
                             <a href="{{ url_for('get_potholes') }}" class="btn deep-purple"><i class="material-icons left">refresh</i> Reset</a>
                             <button type="submit" class="purple btn">
                                 <i class="material-icons left">search</i> Search
