@@ -150,6 +150,23 @@ def users(user_id=None):
                            cur_user=cur_user if user_id else None)
 
 
+# ---------------------------- UPDATE USER ----------------------------
+@app.route("/update_user/<user_id>", methods=["GET", "POST"])
+def update_user(user_id=None):
+    is_admin = True if request.form.get("is_admin") else False
+    is_master_admin = True if request.form.get("is_master_admin") else False
+    if request.method == "POST":
+        submit_user = {
+            "admin": is_admin,
+            "master_admin": is_master_admin
+        }
+        mongo.db.users.update_one(
+            {"_id": ObjectId(user_id)}, {"$set": submit_user})
+        flash("User successfully updated", "flash_success")
+
+    return users(user_id)
+
+
 # --------------------------------------------------------------------------
 # ---------------------------- POTHOLE FEATURES ----------------------------
 
