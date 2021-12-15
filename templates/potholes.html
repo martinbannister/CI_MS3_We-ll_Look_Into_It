@@ -3,10 +3,24 @@
 
 {% block content %}
 <h3 class="indigo-text text-darken-4 center-align">Potholes
-    <a href="{{ url_for('add_pothole') }}" class="btn-floating btn-large waves-effect waves-light purple darken-4 right">
-        <i class="material-icons">add</i>
-    </a>
+    {% if session["user"] %}
+        <a href="{{ url_for('add_pothole') }}" class="btn-floating btn-large waves-effect waves-light purple darken-4 right">
+            <i class="material-icons">add</i>
+        </a>
+    {% endif %}
 </h3>
+
+{% if not session["user"] %}
+<div class="row">
+    <div class="card grey lighten-5 col s10 offset-s1">
+        <h4 class="center-align">Welcome to "We'll Look Into It"</h4>
+        <p>A Council agnostic pothole reporting service.</p>
+        <p>If you're new to the site and would like to report a pothole please register an account, it's free, quick and easy.</p>
+        <p>The personal data you share will not be made available to any councils and will only be used to send you communications from this site that you opt into.  Potholes you report are public.</p>
+        <p>If you represent a Council that would like to use this service please <a href="#">contact us</a></p>
+    </div>
+</div>
+{% endif %}
 
 <!-- search feature -->
 <div class="container center">
