@@ -135,9 +135,13 @@ def users(user_id=None):
                                             "admin",
                                             "master_admin"])
 
-    users = list(mongo.db.users.find().sort([("primary_county", pymongo.ASCENDING),
-                                        ("fullname", pymongo.ASCENDING)]))
-    counties = list(mongo.db.counties.find().sort("county_name", pymongo.ASCENDING))
+    users = list(mongo.db.users.find().sort([
+                                             ("primary_county",
+                                              pymongo.ASCENDING),
+                                             ("fullname",
+                                              pymongo.ASCENDING)]))
+    counties = list(mongo.db.counties.find().sort("county_name",
+                                                  pymongo.ASCENDING))
     return render_template("users.html",
                            users=users,
                            counties=counties,
