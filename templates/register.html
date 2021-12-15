@@ -8,11 +8,20 @@
     <div class="row">
         <form class="col s12 m8 offset-m2" onsubmit="checkRegisterForm(event)" method="POST" action="{{ url_for('register') }}">
             <div class="card-panel">
+                <!-- username -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="username" name="username" type="text" class="validate"  minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         <label for="username">Username</label>
+                    </div>
+                </div>
+                <!-- fullname -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">face</i>
+                        <input id="fullname" name="fullname" type="text" class="validate"  minlength="5" maxlength="100" pattern="^[a-zA-Z0-9]{5,100}$" required>
+                        <label for="fullname">Fullname</label>
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +52,7 @@
                 </div>
                 <div class="row">
                     <button type="submit" class="col s12 btn-large purple">
-                        Register <i class="material-icons">login</i>
+                        Register <i class="material-icons">how_to_reg</i>
                     </button>
                 </div>
             </div>
