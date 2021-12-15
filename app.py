@@ -228,14 +228,8 @@ def edit_pothole(pothole_id):
 def manage_pothole(pothole_id):
     if request.method == "POST":
         submit_pothole = {
-            "created_by": session["user"],
-            "county_name": request.form.get("county_name"),
-            "area_name": request.form.get("area_name"),
-            "pothole_location": request.form.get("pothole_location"),
-            "depth": int(request.form.get("depth")),
-            "photo": request.form.get("photo"),
-            "severity": int(request.form.get("severity")),
-            "comments": request.form.get("comments")
+            "pothole_status": request.form.get("pothole_status"),
+            "admin_comments": request.form.get("admin_comments")
         }
         mongo.db.potholes.update_one(
             {"_id": ObjectId(pothole_id)}, {"$set": submit_pothole})
