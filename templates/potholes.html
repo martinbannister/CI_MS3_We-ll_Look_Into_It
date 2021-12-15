@@ -58,7 +58,10 @@
                     <i class="material-icons tooltipped" data-position="left" data-tooltip="Click for more info">disc_full</i>
                     <strong><em>{{ pothole.pothole_location }}</em></strong>
                     <span class="new badge orange" data-badge-caption="up votes">{{ pothole.upvotes }}</span>
-                    <a href="{{ url_for('upvote_pothole', pothole_id=pothole._id) }}" class="orange-text"><i class="material-icons">plus_one</i></a>
+                    {% if session["user"] %}
+                        <a href="{{ url_for('upvote_pothole', pothole_id=pothole._id) }}" class="orange-text"><i class="material-icons">plus_one</i></a>
+                    {% endif %}
+                        <a href="#" class="orange-text tooltipped" data-position="bottom" data-tooltip="Please, register to upvote"><i class="material-icons">plus_one</i></a>
                 </div>
                 <div class="collapsible-body white-text purple lighten-1">
                     <p><em>County</em>: <strong>{{ pothole.county_name }}</strong><br />
