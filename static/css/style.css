@@ -220,3 +220,12 @@ input[type=range]::-webkit-slider-thumb {
 .dropdown-content li>span {
     color: var(--indigo);
 }
+
+/* Customise checked switch colours */
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #c5cae9;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: var(--indigo);
+}
