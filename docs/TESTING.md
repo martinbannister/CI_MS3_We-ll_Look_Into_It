@@ -81,8 +81,32 @@ The author used the [W3C CSS Validation Service](http://jigsaw.w3.org/css-valida
 ---
 
 ### Accessibility
+
+The author used the [WAVE WebAIM web accessibility evaluation tool](https://wave.webaim.org/report#/http://ci-ms3-we-ll-look-into-it.herokuapp.com/) to check if there were any issues with accessibility standards.  
+
+The reports show some contrast errors with form labels.  These are the result of the Materialize CSS framework's predefined custom styling for input items.  This is something that I found very difficult to customise or override with my own CSS that sometimes produced inconsistent results.  As a result I have chosen to leave the form labels as they are with a view to customising in the future.
+
+Register page
+
+The register page has 6 input fields on it resulting in the 6 contrast errors.
+
+![Register page wave result](assets/images/testing/WAVE/testing_wave_register.png)
+
+Login page
+
+![login page wave result](assets/images/testing/WAVE/testing_wave_login.png)
+
+Potholes list page
+
+![pothole page wave result](assets/images/testing/WAVE/testing_wave_potholes.png)
+
+Counties list page
+
+![counties page wave result](assets/images/testing/WAVE/testing_wave_counties.png)
+
 ### Performance
 ### JSHint testing
+### PEP8 Testing
 ### Tests on Various Devices
 #### Devices Tested
 #### Tests Performed
