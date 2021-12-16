@@ -65,6 +65,9 @@ As the site owner I want to...
 14. add new Councils to the system.
 15. set users as Admin or Master Admin.
 
+**NOTE:** Although the background image is not present in most of these vidoes it's addition had no material impact on the functionality of the site.  Performance testing was completed with the background image in place.
+
+---
 
 ### Browser Compatibility
 ## Bugs found and resolved during development
