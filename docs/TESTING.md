@@ -25,13 +25,16 @@ The author used the [W3C Markup Validation Service](https://validator.w3.org/) t
 
 #### Login
 Login page result
+
 ![login html result](assets/images/testing/HTML/testing_html_login.png)
 
 #### Potholes
 Potholes list page (get_potholes)
+
 ![get_potholes html result](assets/images/testing/HTML/testing_html_potholes_get.png)
 
 Pothole add page (add_pothole)
+
 ![add_pothole html result](assets/images/testing/HTML/testing_html_pothole_add.png)
 
 Pothole edit page (edit_pothole)
@@ -44,31 +47,38 @@ This page initally returned errors.
 ![edit_pothole html result with errors](assets/images/testing/HTML/testing_html_pothole_edit_errors.png)
 
 Both these errors were corrected and a new test passed:
+
 ![edit_pothole html result corrected](assets/images/testing/HTML/testing_html_pothole_edit_fixed.png)
 
 #### Counties
 
 Counties list page (get_counties)
+
 ![get_counties html result](assets/images/testing/HTML/testing_html_counties_get.png)
 
 Counties edit page (edit_counties)
+
 ![edit_counties html result](assets/images/testing/HTML/testing_html_counties_edit.png)
 
 Counties add page (add_counties)
 
 This is an example of the effect of the defensive programming at work.  Due to the page not being accessible without being logged in as a result of no session cookie present the validator was not able to access the page.
+
 ![add_counties cannot be checked error](assets/images/testing/HTML/testing_html_counties_add_defensive.png)
 
 #### Status'
 Where possible I have used the term status' to refer to multiple status items.  Where this isn't possible for programming purposes I have used statuses.  
 
 Status' List page (ph_status)
+
 ![ph_status html result](assets/images/testing/HTML/testing_html_statuses_get.png)
 
 Status add page(add_status)
+
 ![add_status html result](assets/images/testing/HTML/testing_html_statuses_add.png)
 
 Status edit page (edit_status)
+
 ![edit_status html result](assets/images/testing/HTML/testing_html_statuses_edit.png)
 
 ---
@@ -103,6 +113,8 @@ Potholes list page
 Counties list page
 
 ![counties page wave result](assets/images/testing/WAVE/testing_wave_counties.png)
+
+---
 
 ### Performance
 ### JSHint testing
