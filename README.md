@@ -74,7 +74,7 @@ The site is to be designed with simplicity and ease of access in mind.  It will 
 As a first time visitor I want...
 
 1. to be able to search pothole reports to see if a report has already been made.
-2. to be able to easily submit a pothole report.
+2. to easily register for the site and submit a pothole report.
 
 #### Returning Visitors
 
@@ -89,10 +89,20 @@ Upon returning to the site I want to...
 
 As someone administering potholes for a coucil I want to...
 
-6. view a list of all pothole reports for my county.
-7. see any newly submitted pothole reports.
-8. update the status of existing reports and add comments.
-9. grant access to my colleagues to be able to update reports.
+7. view a list of all pothole reports for my county.
+8. see any newly submitted pothole reports.
+9. update the status of existing reports and add comments.
+10. grant access to my colleagues to be able to update reports.
+11. add or update Areas for my county.
+12. add or update Pothole Status'.
+
+#### Site Owners/Administrators
+
+As the site owner I want to...
+
+13. have access to admin level controls.
+14. add new Councils to the system.
+15. set users as Admin or Master Admin.
 
 [Back to Index](#table-of-contents)
 
