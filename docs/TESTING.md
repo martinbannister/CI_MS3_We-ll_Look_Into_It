@@ -24,20 +24,22 @@
 The author used the [W3C Markup Validation Service](https://validator.w3.org/) to validate the HTML of as many of the pages on the site as possible.  Some defensive programming to prevent access to pages without being logged in made accessing them from the checker impossible.  Those pages that hadn't been locked down were manually navigated to and tested. Most pages showed no errors.
 
 #### Login
-Login page result
+
+**Login page result**
 
 ![login html result](assets/images/testing/HTML/testing_html_login.png)
 
 #### Potholes
-Potholes list page (get_potholes)
+
+**Potholes list page (get_potholes)**
 
 ![get_potholes html result](assets/images/testing/HTML/testing_html_potholes_get.png)
 
-Pothole add page (add_pothole)
+**Pothole add page (add_pothole)**
 
 ![add_pothole html result](assets/images/testing/HTML/testing_html_pothole_add.png)
 
-Pothole edit page (edit_pothole)
+**Pothole edit page (edit_pothole)**
 
 This page initally returned errors.
 
@@ -52,15 +54,15 @@ Both these errors were corrected and a new test passed:
 
 #### Counties
 
-Counties list page (get_counties)
+**Counties list page (get_counties)**
 
 ![get_counties html result](assets/images/testing/HTML/testing_html_counties_get.png)
 
-Counties edit page (edit_counties)
+**Counties edit page (edit_counties)**
 
 ![edit_counties html result](assets/images/testing/HTML/testing_html_counties_edit.png)
 
-Counties add page (add_counties)
+**Counties add page (add_counties)**
 
 This is an example of the effect of the defensive programming at work.  Due to the page not being accessible without being logged in as a result of no session cookie present the validator was not able to access the page.
 
@@ -69,15 +71,15 @@ This is an example of the effect of the defensive programming at work.  Due to t
 #### Status'
 Where possible I have used the term status' to refer to multiple status items.  Where this isn't possible for programming purposes I have used statuses.  
 
-Status' List page (ph_status)
+**Status' List page (ph_status)**
 
 ![ph_status html result](assets/images/testing/HTML/testing_html_statuses_get.png)
 
-Status add page(add_status)
+Status add page(add_status)**
 
 ![add_status html result](assets/images/testing/HTML/testing_html_statuses_add.png)
 
-Status edit page (edit_status)
+**Status edit page (edit_status)**
 
 ![edit_status html result](assets/images/testing/HTML/testing_html_statuses_edit.png)
 
@@ -86,7 +88,8 @@ Status edit page (edit_status)
 ### CSS Validation
 
 The author used the [W3C CSS Validation Service](http://jigsaw.w3.org/css-validator/validator) to validate the style.css file of the site.  It returned no errors.
-![](assets/images/testing/testing_css_style.png)
+
+![css validation result](assets/images/testing/testing_css_style.png)
 
 ---
 
@@ -96,21 +99,21 @@ The author used the [WAVE WebAIM web accessibility evaluation tool](https://wave
 
 The reports show some contrast errors with form labels.  These are the result of the Materialize CSS framework's predefined custom styling for input items.  This is something that I found very difficult to customise or override with my own CSS that sometimes produced inconsistent results.  As a result I have chosen to leave the form labels as they are with a view to customising in the future.
 
-Register page
+**Register page**
 
 The register page has 6 input fields on it resulting in the 6 contrast errors.
 
 ![Register page wave result](assets/images/testing/WAVE/testing_wave_register.png)
 
-Login page
+**Login page**
 
 ![login page wave result](assets/images/testing/WAVE/testing_wave_login.png)
 
-Potholes list page
+**Potholes list page**
 
 ![pothole page wave result](assets/images/testing/WAVE/testing_wave_potholes.png)
 
-Counties list page
+**Counties list page**
 
 ![counties page wave result](assets/images/testing/WAVE/testing_wave_counties.png)
 
@@ -137,6 +140,12 @@ Also, both results show their respective function names as being unused variable
 ![flash_messages.js JSHint results](assets/images/testing/JS/testing_js_flash_messages.png)
 
 ### PEP8 Testing
+
+The author used [PEP8 Online](http://pep8online.com/) to check the python code for any errors.  None were reported.
+
+**PEP8 result**
+
+![pep8 result](assets/images/testing/testing_pep8_app_py.png)
 
 
 ### Tests on Various Devices
