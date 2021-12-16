@@ -12,7 +12,7 @@
                     <label for="county_name" class="hide">County</label>
                     <div class="cust_select">
                         <select id="county_name" name="county_name" class="validate indigo-text text-darken-4 browser-default" required>
-                            <option value="" disabled selected>Choose the County</option>
+                            <option value="" disabled>Choose the County</option>
                             {% for county in counties %}
                                 {% if county.county_name == pothole.county_name %}
                                     <option value="{{ county.county_name }}" selected>{{ county.county_name }}</option>
@@ -71,7 +71,7 @@
                             Severity*
                         </label>
                         <i class="material-icons prefix indigo-text text-darken-4">priority_high</i>
-                        <input value="{{ pothole.severity }}" id="severity" name="severity" class="browser-default" type="range" min="1" max="6" list="severities" required>
+                        <input value="{{ pothole.severity }}" id="severity" name="severity" class="browser-default" type="range" min="1" max="6" list="severities">
                         <datalist id="severities">
                             <option value="1" label="1"></option>
                             <option value="2" label="2"></option>
