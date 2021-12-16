@@ -13,6 +13,8 @@
   }
 
 body {
+    background: url("../images/logo_bg.png") no-repeat center center fixed;
+    background-size: auto 100%;
     font-family: 'Lato', sans-serif;
     display: flex;
     min-height: 100vh;
