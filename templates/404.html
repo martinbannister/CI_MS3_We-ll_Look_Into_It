@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h3 class="center-align purple-text text-darken-4">Page Not Found (400)</h3>
+
+    <div class="row">
+            <div class="card-panel col s12 m8 offset-m2">
+                <h4 class="purple-text text-darken-4">Sorry, the page you requested was not found.</h4>
+                <p class="purple-text text-darken-4">Please use the navigation above and try again.</p>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">
+                New here? <a href="{{ url_for('register') }}" class="">Register Account</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
