@@ -13,8 +13,8 @@
   }
 
 body {
-    background: url("../images/logo_bg.png") no-repeat center center fixed;
-    background-size: auto 100%;
+    /* REFERENCE: https://developer.mozilla.org/en-US/docs/Web/CSS/background */
+    background: url("../images/logo_bg.png") 15% center/auto 100% no-repeat fixed;
     font-family: 'Lato', sans-serif;
     display: flex;
     min-height: 100vh;
