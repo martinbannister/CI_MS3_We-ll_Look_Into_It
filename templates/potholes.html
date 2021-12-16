@@ -57,11 +57,11 @@
                 <div class="collapsible-header hoverable purple white-text">
                     <i class="material-icons tooltipped" data-position="left" data-tooltip="Click for more info">disc_full</i>
                     <strong><em>{{ pothole.pothole_location }}</em></strong>
-                    <span class="new badge orange" data-badge-caption="up votes">{{ pothole.upvotes }}</span>
+                    <span class="new badge orange purple-text text-darken-4" data-badge-caption="up votes">{{ pothole.upvotes }}</span>
                     {% if session["user"] %}
-                        <a href="{{ url_for('upvote_pothole', pothole_id=pothole._id) }}" class="orange-text"><i class="material-icons">plus_one</i></a>
+                        <a href="{{ url_for('upvote_pothole', pothole_id=pothole._id) }}" class="orange-text text-lighten-4"><i class="material-icons">plus_one</i></a>
                     {% else %}
-                        <a href="#" class="orange-text tooltipped" data-position="bottom" data-tooltip="Please, register to upvote"><i class="material-icons">plus_one</i></a>
+                        <a href="#" class="orange-text text-lighten-4 tooltipped" data-position="bottom" data-tooltip="Please, register to upvote"><i class="material-icons">plus_one</i></a>
                     {% endif %}
                 </div>
                 <div class="collapsible-body white-text purple lighten-1">
