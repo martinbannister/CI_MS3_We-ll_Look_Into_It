@@ -117,8 +117,28 @@ Counties list page
 ---
 
 ### Performance
+
+---
+
 ### JSHint testing
+
+The author used [JSHint](https://jshint.com/) to verify the javascript used in the site.  
+
+In both results the undefined variable M is identified.  This is the Materialze framework's own method and is defined in an external file.
+
+Also, both results show their respective function names as being unused variables.  These functions are called externally from HTML pages and are therefore unused within their respective scripts.
+
+**script.js**
+
+![main script.js JSHint results](assets/images/testing/JS/testing_jshint_script.png)
+
+**flash_messages.js**
+
+![flash_messages.js JSHint results](assets/images/testing/JS/testing_js_flash_messages.png)
+
 ### PEP8 Testing
+
+
 ### Tests on Various Devices
 #### Devices Tested
 #### Tests Performed
