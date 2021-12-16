@@ -1,3 +1,6 @@
+/* NOTE: underscores are used in custom class names to
+    distinguish them from framework class names */
+
 *,
 *::before,
 *::after {
@@ -169,6 +172,10 @@ datalist {
 
 .flashes h4 {
 line-height: 2;
+}
+
+.dark_link:hover {
+    text-decoration: underline;
 }
 
 
