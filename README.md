@@ -1,5 +1,9 @@
 # We'll Look Into It
 
+## Introduction
+
+We'll Look Into It is designed as a county/council agnostic pothole reporting system that can be used by the public and administered by users in a council.  This initial site gives reporting capabilities and some admin features.  There is scope to develop the site further to make it even more useful to both the public and councils.
+
 ## Code Institute Milestone 3 Project
 
 [The Live Website](https://ci-ms3-we-ll-look-into-it.herokuapp.com/)
