@@ -212,6 +212,8 @@ The only image used on the site is the logo that I created.  It was inspired by 
 
 ## Features
 
+These features can be seen in action in the [Testing](#testing) documentation.
+
 **Users**
 
 1. Anyone can visit the site and see and search for pothole reports.
