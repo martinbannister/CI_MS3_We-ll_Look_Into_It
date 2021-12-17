@@ -30,7 +30,6 @@
 5. [Features](#features)
 6. [Technologies Used](#technologies-used)
 7. [Testing](#testing)
-   - [Bugs During Development](#Bugs-found-and-resolved-during-development)
 8. [Deployment](#deployment)
 9. [Credits](#credits)
 10. [Acknowledgements](#acknowledgements)
@@ -209,6 +208,67 @@ Testing has been documented in the separate [TESTING.md](docs/TESTING.md) file
 
 ### Deployment
 
+---
+
 ### Credits
 
-#### Acknowledgements
+#### _**Resources Used**_
+
+These resources were used throughout the project to either directly address an issue or implement a feature.  Where appropriate (e.g the knowledge is not a general understanding) a "REFERENCE" comment has been included in the code.  Any references not included directly in the code are provided here as a reference.  
+
+📗 **Mozialla Developer Network - Web Docs CSS**
+
+[CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+For reading up on the correct use of CSS selectors, particulary CSS Grid and shorthand properties.
+
+📗 **W3 Schools**
+
+[CSS Reference](https://www.w3schools.com/cssref/default.asp)
+
+[Python Reference](https://www.w3schools.com/python/default.asp)
+
+For reading up on and experimenting with CSS.  For python as a refresher reference to course content covered.
+
+Specific references to creating custom Select inputs and Range inputs are included in the [style.css](../static/css/style.css) file.
+
+📗 **Mongo DB Docs**
+
+[Perform CRUD operations - Mongo DB Shell](https://docs.mongodb.com/mongodb-shell/crud/)
+
+For reading up on each CRUD operation and to use non-depricated methods like those used in course content.
+
+📗 **Flask Web Developemnt** - Developing web applications with python
+
+Grinberg, M. (2018) _Flask Web Development_. 2nd edn. O'Reilly Media, Inc.
+
+
+📗 **Reading form elements on form submit**
+
+[https://stackoverflow.com/questions/37487826/send-form-data-to-javascript-on-submit/#57047920](https://stackoverflow.com/questions/37487826/send-form-data-to-javascript-on-submit/#57047920)
+
+📗 **Confirming delete**
+
+[https://stackoverflow.com/questions/45874906/flask-and-javascript-confirm-before-deleting#52675996](https://stackoverflow.com/questions/45874906/flask-and-javascript-confirm-before-deleting#52675996)
+
+📗 **Adding labels to slider**
+
+[https://stackoverflow.com/questions/61204680/html-range-slider-with-labels-every-5#61205099](https://stackoverflow.com/questions/61204680/html-range-slider-with-labels-every-5#61205099)
+
+📗 **CSS Appearance property**
+
+[https://developer.mozilla.org/en-US/docs/Web/CSS/appearance](https://developer.mozilla.org/en-US/docs/Web/CSS/appearance)
+
+📗 **Correct use of input=range datalist labels**
+
+[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#adding_hash_marks_and_labels](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#adding_hash_marks_and_labels)
+
+📗 **Optional parameters on flask routes**
+
+[https://www.kite.com/python/answers/how-to-have-optional-url-parameters-using-flask-in-python](https://www.kite.com/python/answers/how-to-have-optional-url-parameters-using-flask-in-python)
+
+📗 **Pre-populating Subject & Body in mailto: links**
+
+[https://css-tricks.com/snippets/html/mailto-links/](https://css-tricks.com/snippets/html/mailto-links/)
+
+#### _**Acknowledgements**_
