@@ -20,7 +20,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# CUSTOM ERROR PAGES
+# REFERENCE: Grinberg (2018) Flask Web Development - See README.md
 # ---------------------------- CUSTOM 404 PAGE -------------------------
 @app.errorhandler(404)
 def page_not_found(e):
