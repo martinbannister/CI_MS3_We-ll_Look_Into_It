@@ -121,6 +121,51 @@ The register page has 6 input fields on it resulting in the 6 contrast errors.
 
 ### Performance
 
+[Google Lighthouse](https://developers.google.com/web/tools/lighthouse/) has been used to test the performance of the main pages of the site.  For Counties, Areas and Status' the add & edit pages were not tested because these are based on the add & edit pothole pages as a starting point.
+
+**Register**
+
+The register page has a relatively low score on Accessibility compared to other pages.  The main difference is the use of the Materialize select input, the `label` is not associated to the `select` element using the `for` attribute which affects the score.  For a future version I will replace this with a standard `select` input with my own custom styling as used on the add and edit pothole pages.
+
+![Lighthouse register page report](assets/images/testing/lighthouse/testing_lighthouse_d_register.png)
+
+**Login**
+
+![Lighthouse login page report](assets/images/testing/lighthouse/testing_lighthouse_d_login.png)
+
+**Get Potholes**
+
+![Lighthouse get potholes page report](assets/images/testing/lighthouse/testing_lighthouse_d_get_potholes.png)
+
+**Add Potholes**
+
+![Lighthouse add potholes page report](assets/images/testing/lighthouse/testing_lighthouse_d_add_pothole.png)
+
+**Edit Potholes**
+
+![Lighthouse edit potholes page report](assets/images/testing/lighthouse/testing_lighthouse_d_edit_pothole.png)
+
+**Get Counties**
+
+![Lighthouse get counties page report](assets/images/testing/lighthouse/testing_lighthouse_d_get_counties.png)
+
+**Get Areas**
+
+![Lighthouse get areas page report](assets/images/testing/lighthouse/testing_lighthouse_d_get_areas.png)
+
+**Get Status'**
+
+![Lighthouse get status page report](assets/images/testing/lighthouse/testing_lighthouse_d_get_status.png)
+
+**Profile**
+
+![Lighthouse profile page report](assets/images/testing/lighthouse/testing_lighthouse_d_profile.png)
+
+**Users**
+
+![Lighthouse users page report](assets/images/testing/lighthouse/testing_lighthouse_d_users.png)
+
+
 ---
 
 ### JSHint testing
@@ -149,35 +194,66 @@ The author used [PEP8 Online](http://pep8online.com/) to check the python code f
 
 
 ### Tests on Various Devices
+
 #### Devices Tested
+
+- Xiaomi Redme Note 9
+- Lenovo Thinkpad C13 Yoga (Chrome & Firefox)
+- 
+
 #### Tests Performed
+
+1. All links in page naviagation work and aren't broken.
+2. Register page works correctly and logs user in after registration.
+3. Login page works.
+4. Profile correctly display's users own pothole reports.
+5. Potholes page shows all potholes.
+6. Search function works.
+7. Upvote function works.
+8. Add pothole page works and pothole gets added to the database.
+9. Edit pothole pages works and changes made are saved to the database.
+10. Admin users can make other users Admins.
+11. Master Admins users can make other users Master Admins.
+12. Admins can view, edit, add & delete Areas and pothole status'.
+13. Master Admins can view, edit, add & delete Counties.
+
 ### Testing User Stories
 
 As a first time visitor I want...
 
 1. to be able to search pothole reports to see if a report has already been made.
+    - Video
 
 2. to easily register for the site and submit a pothole report.
-    - View this being tested in this [video](assets/videos/testing_potholes_add.webm)
+    - View this being tested in this [video]()
 
 ---
 
 Upon returning to the site I want to...
 
 3. view a list of my reports and check their status.
+    - video
 4. update my reports to add or remove information.
+    - video
 5. upvote other users reports.
+    - video
 6. request a previously unrepaired pothole be reviewed following a change to it's condition.
+    - video
 
 ---
 
 As someone administering potholes for a coucil I want to...
 
 7. view a list of all pothole reports for my county.
+    - Future release?
 8. see any newly submitted pothole reports.
+    - Future release?
 9. update the status of existing reports and add comments.
+    - video
 10. grant access to my colleagues to be able to update reports.
+    - video
 11. add or update Areas for my county.
+    -video
 12. add or update Pothole Status'.
     - View this being tested in this [video](https://user-images.githubusercontent.com/78867133/146281282-7fe12068-12bb-45e7-8d93-4c4561f30dd4.mp4)
 
@@ -186,14 +262,21 @@ As someone administering potholes for a coucil I want to...
 As the site owner I want to...
 
 13. have access to admin level controls.
+    - video
 14. add new Councils to the system.
+    - video
 15. set users as Admin or Master Admin.
+    - video
 
 **NOTE:** Although the background image is not present in most of these vidoes it's addition had no material impact on the functionality of the site.  Performance testing was completed with the background image in place.
 
 ---
 
 ### Browser Compatibility
+
+- Google Chrome
+- Mozilla Firefox
+
 ## Bugs found and resolved during development
 
 
