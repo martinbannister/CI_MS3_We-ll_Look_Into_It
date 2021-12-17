@@ -222,7 +222,10 @@ The author used [PEP8 Online](http://pep8online.com/) to check the python code f
 As a first time visitor I want...
 
 1. to be able to search pothole reports to see if a report has already been made.
-    - Video
+
+**Search**
+
+https://user-images.githubusercontent.com/78867133/146532202-c3e551b8-5d07-494c-bccf-7e7c0bdbe402.mp4
 
 2. to easily register for the site and submit a pothole report.
     - View this being tested in this video
@@ -241,13 +244,32 @@ https://user-images.githubusercontent.com/78867133/146469623-72f9a354-5f53-4d68-
 Upon returning to the site I want to...
 
 3. view a list of my reports and check their status.
-    - video
+
+https://user-images.githubusercontent.com/78867133/146532367-a6edfca1-3810-49d7-97d9-40077d6f70fd.mp4
+
 4. update my reports to add or remove information.
-    - video
+
+**Edit**
+
+https://user-images.githubusercontent.com/78867133/146532451-8918c791-6f7b-48f6-8682-f2e806de0d8c.mp4
+
+**Delete**
+
+https://user-images.githubusercontent.com/78867133/146533094-7c06e2aa-0eeb-4e6b-a0c5-a3637f1e50e5.mp4
+
+**Read Reports Cannot Be Deleted**
+
+https://user-images.githubusercontent.com/78867133/146533234-524e1ddb-0232-42e9-a315-18ae991018ee.mp4
+
+
 5. upvote other users reports.
-    - video
+
+https://user-images.githubusercontent.com/78867133/146532525-e72fca76-10f2-4f81-9ebf-c849b80b340a.mp4
+
 6. request a previously unrepaired pothole be reviewed following a change to it's condition.
-    - video
+
+https://user-images.githubusercontent.com/78867133/146532563-29d1846f-dd26-4b04-b743-ea71bbcc1cbd.mp4
+
 
 ---
 
@@ -259,7 +281,13 @@ As someone administering potholes for a coucil I want to...
     - Future release?
 9. update the status of existing reports and add comments.
 
+**Update Pothole Details**
+
 https://user-images.githubusercontent.com/78867133/146469770-cadb5981-2d43-4d87-820c-f76a15a95c2c.mp4
+
+**Pothole Marked As Read Once Opened**
+
+https://user-images.githubusercontent.com/78867133/146533685-93b73884-3188-4aa7-8033-2e1548e2ef06.mp4
 
 
 10. grant access to my colleagues to be able to update reports.
@@ -289,18 +317,24 @@ https://user-images.githubusercontent.com/78867133/146281282-7fe12068-12bb-45e7-
 
 **Edit Status**
 
-
+https://user-images.githubusercontent.com/78867133/146532871-ff245361-4909-4e3b-884c-9f8cfefdfdb5.mp4
 
 **Delete Status**
 
+https://user-images.githubusercontent.com/78867133/146532890-44d73abe-9a67-41d9-a9e7-ed3ec2a8a147.mp4
 
 
 ---
 
-As the site owner I want to...
+**As the site owner I want to...**
 
 13. have access to admin level controls.
-    - video
+
+**All Admin Controls Available**
+
+https://user-images.githubusercontent.com/78867133/146533992-c2462d46-7c74-4a9e-8f3c-ab77ff185d75.mp4
+
+
 14. add new Councils to the system.
 
 **Add Counties**
@@ -314,7 +348,6 @@ https://user-images.githubusercontent.com/78867133/146469965-aee3f82e-199f-4d4c-
 **Delete Counties**
 
 https://user-images.githubusercontent.com/78867133/146469977-0bfaf991-5546-4d51-b3a7-41a8caba79d6.mp4
-
 
 
 15. set users as Admin or Master Admin.
