@@ -147,7 +147,7 @@ The author designed the database schema to allow fo flexibility of use to be ada
 
 ### Images
 
-The only image used on the site is the logo that I created.
+The only image used on the site is the logo that I created.  It was inspired by style of the images in [this](https://www.istockphoto.com/vector/stick-figure-man-and-a-hole-on-the-floor-gm1272335094-374636205) istock image.  I created it using Google Drawings which can be found [here](https://docs.google.com/drawings/d/17fdpqD9YCwc9MGaTk4Du6HQFjLJsyXwJ5eOzAeuh3TQ/edit?usp=sharing).
 
 ### Wireframes
 
