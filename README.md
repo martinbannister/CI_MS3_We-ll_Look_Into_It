@@ -132,17 +132,23 @@ Master Admin account features:
 
 ## Design
 
-Used Materialize
+I used Materialize framework to style the site for it's range of features and Material Design styling (although this is now out of date based on Google's latest Material You style).  During development I found some limitation with the customisability of the colours used throughout the framework and it has not been updated for some years.  I will not use it in the future.
 
 ### Database
 
-The author designed the database schema to allow fo flexibility of use to be adaptable to a wide range of councils.
+I designed the database schema to allow fo flexibility of use to be adaptable to a wide range of councils.
 
 ![image of database schema](docs/assets/images/database_schema.jpg)
 
 ### Colour Scheme
 
+I selected a colour scheme from the range of colours provided by Materialize.  I chose a purple colour for the main theme of the site as I think this looked clean and profressional without being boring.  
+
+To distinguish the separate data types on the site from the main data of Pothole Reports I themed the Counties, Areas and Pothole Status pages in separate colours so it is clear what area you're interacting with.
+
 ### Typography
+
+I selelcted the Lato font for the majority of this project as it has nice round lettering and closely matches Google's Product Sans front.
 
 ### Images
 
@@ -201,6 +207,29 @@ The only image used on the site is the logo that I created.  It was inspired by 
 ### Features
 
 ### Technologies Used
+
+### Languages
+- [HTML5](https://en.wikipedia.org/wiki/CSS)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript) (From W3C How To)
+- [Python](https://www.python.org/)
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+
+### Frameworks, libraries and other tools
+[Materialize Framework](https://materializecss.com/about.html)
+
+[Google Fonts](https://fonts.google.com/) Site fonts and icons
+
+[Am I responsive](http://ami.responsivedesign.is/)
+
+[VS Code](https://code.visualstudio.com/)
+
+[git](https://git-scm.com/)
+
+[GitHub](https://github.com/)
+
+[Heroku](https://heroku.com/)
 
 ### Testing
 
