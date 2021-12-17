@@ -334,4 +334,62 @@ https://user-images.githubusercontent.com/78867133/146469995-aed8443a-2ae4-4b65-
 
 ## Bugs found and resolved during development
 
+### 🐝 **Registration form not submitting after adding validation**
+
+- [https://stackoverflow.com/questions/22363838/submit-form-after-calling-e-preventdefault#22364136](https://stackoverflow.com/questions/22363838/submit-form-after-calling-e-preventdefault#22364136)
+
+- Prevent default was in the wrong place.
+
+### 🐝 **Custom select box not clickable due to overlapping icon**
+
+![picture of custom select not working](assets/images/testing/error_custom_select.png)
+
+- remove input-field and prefix classes, position relative and left -3.35rem, split grid into 2 columns 0px & 1fr.
+
+### 🐝 **Delete for counties and areas not working**
+
+- A comma was used instead of a colon in the delete_one dictionary.
+
+### 🐝 **Delete pothole status completed without error but did not delete**
+
+- Pothole_statuses collection was spelt incorrectly in delete_status function.
+
+### 🐝 **Master admin switch showing for normal admin users**
+
+- Correctly retrieved property from database, tried to retrieve only master_admin and got _id instead.  Changed users.html to reflect session_user.master_admin to correctly hide switch.
+
+### 🐝 **Method not allowed error when updating user**
+
+- Methods for GET and POST not specified on update_user route.
+
+### 🐝 **Value of admin & master admin switches not saved to database**
+
+- Names for form inputs was incorrect.  Also had to use inline if statement to convert form values to True & False respectively.
+
+### 🐝 **Value to severity not showing on edit_pothole**
+
+- Value attribute missing from input range on form
+
+### 🐝 **Plus 1 icons showing twice on potholes for logged in users**
+
+- Move second plus 1 icons to else statement of check for logged in user
+
+### 🐝 **Admin pages remain available by url after admin log out**
+
+- Logout did not clear session cookies for admin & master_admin
+
+### 🐝 **Error generated when using non-existent session cookie to check user logged in**
+
+- [https://stackoverflow.com/questions/28925602/how-can-i-detect-whether-a-variable-exists-in-flask-session/39204060](https://stackoverflow.com/questions/28925602/how-can-i-detect-whether-a-variable-exists-in-flask-session/39204060)
+
+- Check if key exists in session first
+
+### 🐝 **HTML checker identified required attribute on add_pothole range input**
+
+- Removed attribute
+
+### 🐝 **CSS validator found var(var()) in style.css**
+
+- Removed the outer unnecessary var()
+
 
