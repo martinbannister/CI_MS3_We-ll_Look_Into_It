@@ -225,11 +225,10 @@ As a first time visitor I want...
     - Video
 
 2. to easily register for the site and submit a pothole report.
-    - View this being tested in this [video](
+    - View this being tested in this video
 
 https://user-images.githubusercontent.com/78867133/146469476-6b135880-9f29-4e79-8556-acae19fca975.mp4
 
-)
 
 
 https://user-images.githubusercontent.com/78867133/146469623-72f9a354-5f53-4d68-ae65-6ae9df0db94d.mp4
@@ -257,11 +256,9 @@ As someone administering potholes for a coucil I want to...
 8. see any newly submitted pothole reports.
     - Future release?
 9. update the status of existing reports and add comments.
-    - vid
+    - https://user-images.githubusercontent.com/78867133/146469770-cadb5981-2d43-4d87-820c-f76a15a95c2c.mp4
 
-https://user-images.githubusercontent.com/78867133/146469770-cadb5981-2d43-4d87-820c-f76a15a95c2c.mp4
 
-eo
 10. grant access to my colleagues to be able to update reports.
     - video
 
