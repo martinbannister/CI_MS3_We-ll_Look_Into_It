@@ -133,8 +133,82 @@ Master Admin account features:
 
 ## Design
 
+Used Materialize
+
+### Database
+
+The author designed the database schema to allow fo flexibility of use to be adaptable to a wide range of councils.
+
+![image of database schema]()
+
 ### Colour Scheme
 
 ### Typography
 
 ### Images
+
+The only image used on the site is the logo that I created.
+
+### Wireframes
+
+**Desktop**
+
+[Potholes](docs/wireframes/d_01_home_page.jpg)
+
+[Register](docs/wireframes/d_02_register_page.jpg)
+
+[Login](docs/wireframes/d_03_log_in_page.jpg)
+
+[Add Report](docs/wireframes/d_04_add_report_page.jpg)
+
+[Manage Users](docs/wireframes/d_05_manage_users_page.jpg)
+
+[Manage Counties, Areas or Status'](docs/wireframes/d_06_manage_county_area_status_pages.jpg)
+
+[Add Counties, Areas or Status'](docs/wireframes/d_07_add_county_area_status_pages.jpg)
+
+**Tablet**
+
+[Potholes](docs/wireframes/t_01_home_page.jpg)
+
+[Register](docs/wireframes/t_02_register_page.jpg)
+
+[Login](docs/wireframes/t_03_log_in_page.jpg)
+
+[Add Report](docs/wireframes/t_04_add_report_page.jpg)
+
+[Manage Users](docs/wireframes/t_05_manage_users_page.jpg)
+
+[Manage Counties, Areas or Status'](docs/wireframes/t_06_manage_county_area_status_pages.jpg)
+
+[Add Counties, Areas or Status'](docs/wireframes/t_07_add_county_area_status_pages.jpg)
+
+**Mobile**
+
+[Potholes](docs/wireframes/m_01_home_page.jpg)
+
+[Register](docs/wireframes/m_02_register_page.jpg)
+
+[Login](docs/wireframes/m_03_log_in_page.jpg)
+
+[Add Report](docs/wireframes/m_04_add_report_page.jpg)
+
+[Manage Users](docs/wireframes/m_05_manage_users_page.jpg)
+
+[Manage Counties, Areas or Status'](docs/wireframes/m_06_manage_county_area_status_pages.jpg)
+
+[Add Counties, Areas or Status'](docs/wireframes/m_07_add_county_area_status_pages.jpg)
+
+### Features
+
+### Technologies Used
+
+### Testing
+
+Testing has been documented in the separate [TESTING.md](docs/TESTING.md) file
+
+### Deployment
+
+### Credits
+
+#### Acknowledgements
