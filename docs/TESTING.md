@@ -1,6 +1,6 @@
 # We'll Look Into It - Testing
 
-[Return](README.md) to We'll Look Into It README file.
+[Return](../README.md) to We'll Look Into It README file.
 
 ## Table of Contents
 
@@ -199,7 +199,6 @@ The author used [PEP8 Online](http://pep8online.com/) to check the python code f
 
 - Xiaomi Redme Note 9
 - Lenovo Thinkpad C13 Yoga (Chrome & Firefox)
-- 
 
 #### Tests Performed
 
@@ -228,7 +227,6 @@ As a first time visitor I want...
 https://user-images.githubusercontent.com/78867133/146532202-c3e551b8-5d07-494c-bccf-7e7c0bdbe402.mp4
 
 2. to easily register for the site and submit a pothole report.
-    - View this being tested in this video
 
 **Register**
 
@@ -276,9 +274,9 @@ https://user-images.githubusercontent.com/78867133/146532563-29d1846f-dd26-4b04-
 As someone administering potholes for a coucil I want to...
 
 7. view a list of all pothole reports for my county.
-    - Future release?
+    - This will be made avaialable in a Future release.
 8. see any newly submitted pothole reports.
-    - Future release?
+    - This will be made avaialable in a Future release.
 9. update the status of existing reports and add comments.
 
 **Update Pothole Details**
@@ -362,8 +360,9 @@ https://user-images.githubusercontent.com/78867133/146469995-aed8443a-2ae4-4b65-
 
 ### Browser Compatibility
 
-- Google Chrome
+- Google Chrome (Desktop & Mobile)
 - Mozilla Firefox
+- Opera for Android
 
 ## Bugs found and resolved during development
 
