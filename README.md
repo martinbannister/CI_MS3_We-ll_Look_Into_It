@@ -206,7 +206,65 @@ The only image used on the site is the logo that I created.  It was inspired by 
 
 Testing has been documented in the separate [TESTING.md](docs/TESTING.md) file
 
+---
+
 ### Deployment
+
+### Heroku
+I have used Heroku to deploy this site.  If you would like to do the same follow these steps.
+1. Within your project directory create a _.gitignore_ file & an _env.py_ file
+2. Open _env.py_ and enter `import os`
+3. Then set the following environment variables: 
+```
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "your unique secret key")
+os.environ.setdefault("MONGO_URI", "your unique mongo db link")
+os.environ.setdefault("MONGO_DBNAME", "your database name")
+```
+3. Add _env.py_ to the _.gitignore_ file so this senstive information is not pushed to Github
+4. In a bash terminal type `pip3 freeze __local > requirements.txt`
+5. Type `echo web: python app.py > Procfile` (note the capital P of Procfile)
+6. Open the Procfile and remove any blank line from the bottom
+7. `git add` then `git push` these files to your repository
+8. Visit [heroku.com](https://www.heroku.com/) and sign in or sign up
+9. Click the _New_ button > _Create new app_ in the top right
+0. Enter a unique app name, this is unique to all of Heroku, not just your account
+0. Select the region closest to you
+0. Click _Create app_
+0. Make sure you're on the Deploy tab and select GitHub from Deployment Method
+0. Check that your GitHub account name is showing
+0. Type part of the name of your repo to search and click _Search_
+0. Click connect for the repo oyu want to connect
+0. Select the Settings tab
+0. Click _Reveal config vars_
+0. Enter the config vars as set in your _env.py_ file above
+0. Ensure that your _Procfile_ and _requirements.txt_ files are committed and pushed to GitHub
+0. Return to the Deploy tab
+0. Enable automatic deployments
+0. Select the branch (usually main) and click Deploy Branch
+0. Once the app been deployed, click on the _Open app_ tab at the top right of the page.
+
+
+### Forking the GitHub Repository
+If you would like to fork this respository so you can make changes without affecting the original please follow these steps:
+
+1. Log into your GitHub account and find the [repository](https://github.com/martinbannister/CI_MS3_We-ll_Look_Into_It).
+2. Click 'Fork' (last button on the top right of the repository page).
+3. You will then have a copy of the repository in your own GitHub account. 
+
+### Making a Local Clone
+In order to make a clone of this repository to work on locally, follow these steps:
+
+1. Log into your GitHub account and find the [repository](https://github.com/martinbannister/CI_MS3_We-ll_Look_Into_It).
+2. Click on the 'Code' button (next to 'Add file'). 
+3. To clone the repository using HTTPS, under clone with HTTPS, copy the link.
+   - For SSH, click the SSH tab and copy that link.
+4. Then open Git Bash.
+5. Change the current working directory to where you want the cloned directory to be made.
+6. In your IDE's terminal type 'git clone' followed by the URL you copied.
+7. Press Enter. 
+8. Your local clone will now be made.
 
 ---
 
