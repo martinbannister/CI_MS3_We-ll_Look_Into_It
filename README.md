@@ -274,6 +274,6 @@ Grinberg, M. (2018) _Flask Web Development_. 2nd edn. O'Reilly Media, Inc.
 #### _**Acknowledgements**_
 
 - Firstly to my Husband Graham for putting up with being lonely (yet again) whilst I spent most of my free time working on this project.
-- And to my peers from the Coleg Y Cymoedd April 2021 cohort who have supoorted me and kept me sane, chiefly Llewelyn Williams and Andy Llewellyn.
-- And to everyone on Code Institutes Slack channels who have helped and answered questions.
-- Finally to Millie Kat who has been equal parts a lving companion and pest.
+- And to my peers from the Coleg Y Cymoedd April 2021 cohort who have supported me and kept me sane, chiefly Llewelyn Williams and Andy Llewellyn.
+- And to everyone on Code Institute's Slack channels who have helped and answered questions.
+- Finally to Millie Kat who has been equal parts a loving companion and pest.
