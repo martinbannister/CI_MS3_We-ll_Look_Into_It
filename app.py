@@ -233,7 +233,8 @@ def edit_pothole(pothole_id):
             "depth": int(request.form.get("depth")),
             "photo": request.form.get("photo"),
             "severity": int(request.form.get("severity")),
-            "comments": request.form.get("comments")
+            "comments": request.form.get("comments"),
+            "read_status": "unread"
         }
         mongo.db.potholes.update_one(
             {"_id": ObjectId(pothole_id)}, {"$set": submit_pothole})
