@@ -139,7 +139,7 @@ Used Materialize
 
 The author designed the database schema to allow fo flexibility of use to be adaptable to a wide range of councils.
 
-![image of database schema]()
+![image of database schema](docs/assets/images/database_schema.jpg)
 
 ### Colour Scheme
 
