@@ -20,6 +20,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 # CUSTOM ERROR PAGES
 # REFERENCE: Grinberg (2018) Flask Web Development - See README.md
 # ---------------------------- CUSTOM 404 PAGE -------------------------
@@ -463,4 +464,4 @@ def delete_status(status_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
