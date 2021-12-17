@@ -225,7 +225,15 @@ As a first time visitor I want...
     - Video
 
 2. to easily register for the site and submit a pothole report.
-    - View this being tested in this [video]()
+    - View this being tested in this [video](
+
+https://user-images.githubusercontent.com/78867133/146469476-6b135880-9f29-4e79-8556-acae19fca975.mp4
+
+)
+
+
+https://user-images.githubusercontent.com/78867133/146469623-72f9a354-5f53-4d68-ae65-6ae9df0db94d.mp4
+
 
 ---
 
@@ -249,11 +257,31 @@ As someone administering potholes for a coucil I want to...
 8. see any newly submitted pothole reports.
     - Future release?
 9. update the status of existing reports and add comments.
-    - video
+    - vid
+
+https://user-images.githubusercontent.com/78867133/146469770-cadb5981-2d43-4d87-820c-f76a15a95c2c.mp4
+
+eo
 10. grant access to my colleagues to be able to update reports.
     - video
+
+https://user-images.githubusercontent.com/78867133/146469824-419ff91e-4dfc-4125-a417-f1263ffaac5b.mp4
+
+
 11. add or update Areas for my county.
     -video
+
+https://user-images.githubusercontent.com/78867133/146469851-0e2ccb06-7a97-4f9d-8814-9f09aeba65c9.mp4
+
+
+https://user-images.githubusercontent.com/78867133/146469866-152cb54c-6444-440d-abea-f1d52a5c54f2.mp4
+
+
+
+https://user-images.githubusercontent.com/78867133/146469877-42c39daa-c359-4c63-b380-bee79d36cb08.mp4
+
+
+
 12. add or update Pothole Status'.
     - View this being tested in this [video](https://user-images.githubusercontent.com/78867133/146281282-7fe12068-12bb-45e7-8d93-4c4561f30dd4.mp4)
 
@@ -265,8 +293,24 @@ As the site owner I want to...
     - video
 14. add new Councils to the system.
     - video
+
+https://user-images.githubusercontent.com/78867133/146469944-942a7760-0c4a-4e4d-8eab-925630c2ed41.mp4
+
+
+https://user-images.githubusercontent.com/78867133/146469965-aee3f82e-199f-4d4c-b3aa-5f7515b1226f.mp4
+
+
+
+https://user-images.githubusercontent.com/78867133/146469977-0bfaf991-5546-4d51-b3a7-41a8caba79d6.mp4
+
+
+
 15. set users as Admin or Master Admin.
     - video
+
+https://user-images.githubusercontent.com/78867133/146469995-aed8443a-2ae4-4b65-9b23-3123765e5984.mp4
+
+
 
 **NOTE:** Although the background image is not present in most of these vidoes it's addition had no material impact on the functionality of the site.  Performance testing was completed with the background image in place.
 
