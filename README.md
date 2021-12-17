@@ -130,6 +130,8 @@ Master Admin account features:
 10. Add, Edit and Delete Pothole status'.
 11. Revoke user admin privileges.
 
+---
+
 ## Design
 
 I used Materialize framework to style the site for it's range of features and Material Design styling (although this is now out of date based on Google's latest Material You style).  During development I found some limitation with the customisability of the colours used throughout the framework and it has not been updated for some years.  I will not use it in the future.
@@ -204,9 +206,49 @@ The only image used on the site is the logo that I created.  It was inspired by 
 
 [Add Counties, Areas or Status'](docs/wireframes/m_07_add_county_area_status_pages.jpg)
 
-### Features
+## Features
 
-### Technologies Used
+**Users**
+
+1. Anyone can visit the site and see and search for pothole reports.
+2. Members of the public can register for an account to start reporting potholes.
+3. Users can edit their pothole reports.
+4. Users can delete their pothole reports before they've been seen by an Admin user.
+5. Users can see the status updates of their pothole reports.
+6. Users cannot edit other's reports.
+7. Users can upvote existing pothole reports.
+8. Users can see a list of only their reports on their Profile page.
+
+**Admins**
+
+Admins can:
+
+9. add comments to and set the status of reports.
+0. not delete reports.
+0. set registered users to be other Admins.
+0. add areas to counties.
+0. edit & delete areas of counties.
+0. add, edit & delete pothole status'
+
+Master Admins can:
+
+15. perform all admin tasks above.
+0. set other users as Master Admins.
+0. add counties to the system.
+
+### Future Features
+
+- Limit upvotes to one per user.
+- Admin users filter reports to their county.
+- Admin users see new, unread reports.
+- Admin uploads photo of fixed pothole.
+- Daily digest email to Admins of potholes reported in last 24 hours in their County.
+- Theme site for each County inclduing a logo
+- Features to manage user's own data, update name, email, password, primary county etc.
+
+---
+
+## Technologies Used
 
 ### Languages
 - [HTML5](https://en.wikipedia.org/wiki/CSS)
@@ -231,13 +273,15 @@ The only image used on the site is the logo that I created.  It was inspired by 
 
 [Heroku](https://heroku.com/)
 
-### Testing
+---
+
+## Testing
 
 Testing has been documented in the separate [TESTING.md](docs/TESTING.md) file
 
 ---
 
-### Deployment
+## Deployment
 
 ### Heroku
 I have used Heroku to deploy this site.  If you would like to do the same follow these steps.
@@ -297,9 +341,9 @@ In order to make a clone of this repository to work on locally, follow these ste
 
 ---
 
-### Credits
+## Credits
 
-#### _**Resources Used**_
+### _**Resources Used**_
 
 These resources were used throughout the project to either directly address an issue or implement a feature.  Where appropriate (e.g the knowledge is not a general understanding) a "REFERENCE" comment has been included in the code.  Any references not included directly in the code are provided here as a reference.  
 
@@ -358,7 +402,7 @@ Grinberg, M. (2018) _Flask Web Development_. 2nd edn. O'Reilly Media, Inc.
 
 [https://css-tricks.com/snippets/html/mailto-links/](https://css-tricks.com/snippets/html/mailto-links/)
 
-#### _**Acknowledgements**_
+### _**Acknowledgements**_
 
 - Firstly to my Husband Graham for putting up with being lonely (yet again) whilst I spent most of my free time working on this project.
 - And to my peers from the Coleg Y Cymoedd April 2021 cohort who have supported me and kept me sane, chiefly Llewelyn Williams and Andy Llewellyn.
