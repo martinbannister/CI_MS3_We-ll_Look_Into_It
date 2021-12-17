@@ -282,8 +282,18 @@ https://user-images.githubusercontent.com/78867133/146469866-152cb54c-6444-440d-
 https://user-images.githubusercontent.com/78867133/146469877-42c39daa-c359-4c63-b380-bee79d36cb08.mp4
 
 12. add or update Pothole Status'.
+
+**Add Status**
     
 https://user-images.githubusercontent.com/78867133/146281282-7fe12068-12bb-45e7-8d93-4c4561f30dd4.mp4
+
+**Edit Status**
+
+
+
+**Delete Status**
+
+
 
 ---
 
