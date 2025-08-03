@@ -1,0 +1,10 @@
+# Top-level development dependencies for the project.
+# Use 'pip-compile dev-requirements.in' to generate dev-requirements.txt
+
+pylint
+autopep8
+flake8
+isort
+toml
+pytest # Common testing framework
+black # Popular code formatter
