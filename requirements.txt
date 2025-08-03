@@ -6,6 +6,8 @@
 #
 click==8.0.3
     # via flask
+dnspython==2.7.0
+    # via -r requirements.in
 flask==2.0.2
     # via
     #   -r requirements.in

@@ -2,3 +2,4 @@ Flask
 Flask_PyMongo
 pymongo
 Werkzeug
+dnspython
