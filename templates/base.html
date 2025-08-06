@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="A council agnostic site for the public to report potholes and for the respective council to action or respond">
+        <meta name="description" content="A council agnostic site for the public to make reports and for the respective council to action or respond">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/static/favicon_anim.ico" type="image/x-icon">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
@@ -17,7 +17,7 @@
         <link rel="preload" href="{{ url_for('static', filename='js/script.js') }}" as="script">
         {% block styles %}
         {% endblock %}
-        <title>We'll Look Into It - Pothole Reporter</title>
+        <title>We'll Look Into It - Community Reports</title>
     </head>
 
     <body>
@@ -25,10 +25,10 @@
         <header>
             <nav>
                 <div class="nav-wrapper purple text-white">
-                    <a href="{{ url_for('get_potholes') }}" class="brand-logo right">We'll Look Into It</a>
+                    <a href="{{ url_for('get_reports') }}" class="brand-logo right">We'll Look Into It</a>
                     <a href="#" data-target="mobile-sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="left hide-on-med-and-down">
-                        <li class="{{ potholes_nav }}"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
+                        <li class="{{ reports_nav }}"><a href="{{ url_for('get_reports') }}">Reports</a></li>
                         {% if session.user %}
                             <!-- if user is logged in -->
                             <li class="{{ profile_nav }}"><a href="{{ url_for('profile') }}">Your Profile</a></li>
@@ -44,7 +44,7 @@
 
             <ul class="sidenav" id="mobile-sidenav">
                 <li><h4 class="center-align">We'll Look Into It</h4></li>
-                        <li class="{{ potholes_nav }}"><a href="{{ url_for('get_potholes') }}">Potholes</a></li>
+                        <li class="{{ reports_nav }}"><a href="{{ url_for('get_reports') }}">Reports</a></li>
                         {% if session.user %}
                             <li class="{{ profile_nav }}"><a href="{{ url_for('profile') }}">Your Profile</a></li>
                             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
@@ -70,7 +70,7 @@
                         <ul>
                             <li><a href="{{ url_for('users') }}" class="waves-effect waves-light"><i class="material-icons left">people</i> Users</a></li>
                             <li><a href="{{ url_for('get_areas') }}" class="waves-effect waves-light"><i class="material-icons left">signpost</i> Areas</a></li>
-                            <li><a href="{{ url_for('get_status') }}" class="waves-effect waves-light"><i class="material-icons left">fact_check</i>Pothole Status'</a></li>
+                            <li><a href="{{ url_for('get_status') }}" class="waves-effect waves-light"><i class="material-icons left">fact_check</i>Report Status'</a></li>
                             <!-- if user is a master admin -->
                             {% if session.master_admin %}
                             <li><a href="{{ url_for('get_counties') }}" class="waves-effect waves-light"><i class="material-icons left">map</i>Counties</a></li>
@@ -91,7 +91,7 @@
                     <h5 class="purple-text text-darken-4">We'll Look Into It</h5>
                   </div>
                   <div class="col l4 s12">
-                    <p class="purple-text text-darken-4">A pothole reporting system for use by any council</p>
+                    <p class="purple-text text-darken-4">A community reports system for public reporting of issues administered by community councils.</p>
                   </div>
                 </div>
               </div>
@@ -99,7 +99,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m10 offset-m1">
-                            © 2021 Copyright Martin Bannister-Kelly
+                            © 2025 Copyright Martin Bannister-Kelly
                         </div>
                     </div>
                 </div>
