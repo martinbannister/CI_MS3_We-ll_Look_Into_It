@@ -33,7 +33,7 @@ def internal_server_error(e):
     return render_template("500.html"), 500
 
 
-# ---------------------------- DEFAULT / GET POTHOLES -------------------------
+# ---------------------------- DEFAULT / GET REPORTS -------------------------
 @app.route("/")
 @app.route("/get_reports")
 def get_reports():
@@ -41,13 +41,13 @@ def get_reports():
     return render_template("reports.html", reports=reports)
 
 
-# ---------------------------- POTHOLE SEARCH -------------------------
-@app.route("/pothole_search", methods=["GET", "POST"])
-def pothole_search():
-    search_query = request.form.get("pothole_query")
-    potholes = list(mongo.db.potholes.find(
+# ---------------------------- REPORT SEARCH -------------------------
+@app.route("/report_search", methods=["GET", "POST"])
+def report_search():
+    search_query = request.form.get("report_query")
+    reports = list(mongo.db.reports.find(
         {"$text": {"$search": search_query}}))
-    return render_template("potholes.html", potholes=potholes)
+    return render_template("reports.html", reports=reports)
 
 
 # -----------------------------------------------------------------------
