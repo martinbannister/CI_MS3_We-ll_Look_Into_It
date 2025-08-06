@@ -35,10 +35,10 @@ def internal_server_error(e):
 
 # ---------------------------- DEFAULT / GET POTHOLES -------------------------
 @app.route("/")
-@app.route("/get_potholes")
-def get_potholes():
-    potholes = list(mongo.db.potholes.find())
-    return render_template("potholes.html", potholes=potholes)
+@app.route("/get_reports")
+def get_reports():
+    reports = list(mongo.db.reports.find())
+    return render_template("reports.html", reports=reports)
 
 
 # ---------------------------- POTHOLE SEARCH -------------------------
