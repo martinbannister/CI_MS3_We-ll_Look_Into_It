@@ -189,17 +189,17 @@ def update_user(user_id=None):
 
 
 # --------------------------------------------------------------------------
-# ---------------------------- POTHOLE FEATURES ----------------------------
+# ---------------------------- REPORT FEATURES ----------------------------
 
-# ---------------------------- ADD POTHOLE ----------------------------
-@app.route("/add_pothole", methods=["GET", "POST"])
-def add_pothole():
+# ---------------------------- ADD REPORT ----------------------------
+@app.route("/add_report", methods=["GET", "POST"])
+def add_report():
     if request.method == "POST":
-        pothole = {
+        report = {
             "created_by": session["user"],
             "county_name": request.form.get("county_name"),
             "area_name": request.form.get("area_name"),
-            "pothole_location": request.form.get("pothole_location"),
+            "report_location": request.form.get("report_location"),
             "depth": int(request.form.get("depth")),
             "photo": request.form.get("photo"),
             "severity": int(request.form.get("severity")),
@@ -207,17 +207,17 @@ def add_pothole():
             "admin_comments": "",
             "upvotes": 0,
             "read_status": "unread",
-            "pothole_status": "Pending"
+            "report_status": "Pending"
         }
-        mongo.db.potholes.insert_one(pothole)
-        flash("Pothole submitted for review", "flash_success")
-        return redirect(url_for("get_potholes"))
+        mongo.db.reports.insert_one(report)
+        flash("report submitted for review", "flash_success")
+        return redirect(url_for("get_reports"))
 
     counties = list(mongo.db.counties.find().sort("county_name", 1))
     areas = list(mongo.db.areas.find().sort([
         ("county_name", pymongo.ASCENDING),
         ("area_name", pymongo.ASCENDING)]))
-    return render_template("add_pothole.html", counties=counties, areas=areas)
+    return render_template("add_report.html", counties=counties, areas=areas)
 
 
 # ---------------------------- EDIT POTHOLE ----------------------------
