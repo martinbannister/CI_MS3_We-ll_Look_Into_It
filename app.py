@@ -220,29 +220,29 @@ def add_report():
     return render_template("add_report.html", counties=counties, areas=areas)
 
 
-# ---------------------------- EDIT POTHOLE ----------------------------
-@app.route("/edit_pothole/<pothole_id>", methods=["GET", "POST"])
-def edit_pothole(pothole_id):
+# ---------------------------- EDIT REPORT ----------------------------
+@app.route("/edit_report/<report_id>", methods=["GET", "POST"])
+def edit_report(report_id):
     if request.method == "POST":
-        submit_pothole = {
+        submit_report = {
             "created_by": session["user"],
             "county_name": request.form.get("county_name"),
             "area_name": request.form.get("area_name"),
-            "pothole_location": request.form.get("pothole_location"),
+            "report_location": request.form.get("report_location"),
             "depth": int(request.form.get("depth")),
             "photo": request.form.get("photo"),
             "severity": int(request.form.get("severity")),
             "comments": request.form.get("comments"),
             "read_status": "unread"
         }
-        mongo.db.potholes.update_one(
-            {"_id": ObjectId(pothole_id)}, {"$set": submit_pothole})
-        flash("Pothole updated", "flash_success")
+        mongo.db.reports.update_one(
+            {"_id": ObjectId(report_id)}, {"$set": submit_report})
+        flash("report updated", "flash_success")
 
-    pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
+    report = mongo.db.reports.find_one({"_id": ObjectId(report_id)})
     counties = mongo.db.counties.find().sort("county_name", 1)
-    return render_template("edit_pothole.html",
-                           pothole=pothole, counties=counties)
+    return render_template("edit_report.html",
+                           report=report, counties=counties)
 
 
 # ---------------------------- MANAGE POTHOLE ----------------------------
