@@ -245,27 +245,27 @@ def edit_report(report_id):
                            report=report, counties=counties)
 
 
-# ---------------------------- MANAGE POTHOLE ----------------------------
-@app.route("/manage_pothole/<pothole_id>", methods=["GET", "POST"])
-def manage_pothole(pothole_id):
+# ---------------------------- MANAGE REPORT ----------------------------
+@app.route("/manage_report/<report_id>", methods=["GET", "POST"])
+def manage_report(report_id):
     if request.method == "POST":
-        submit_pothole = {
-            "pothole_status": request.form.get("pothole_status"),
+        submit_report = {
+            "report_status": request.form.get("report_status"),
             "admin_comments": request.form.get("admin_comments")
         }
-        mongo.db.potholes.update_one(
-            {"_id": ObjectId(pothole_id)}, {"$set": submit_pothole})
-        flash("Pothole updated", "flash_success")
+        mongo.db.reports.update_one(
+            {"_id": ObjectId(report_id)}, {"$set": submit_report})
+        flash("Report updated", "flash_success")
     elif request.method == "GET":
-        # mark pothole as read when it's opened
-        mongo.db.potholes.update_one(
-            {"_id": ObjectId(pothole_id)}, {"$set": {"read_status": "read"}})
+        # mark report as read when it's opened
+        mongo.db.reports.update_one(
+            {"_id": ObjectId(report_id)}, {"$set": {"read_status": "read"}})
 
-    statuses = mongo.db.pothole_statuses.find().sort(
-        "pothole_status", pymongo.ASCENDING)
-    pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
-    return render_template("manage_pothole.html",
-                           pothole=pothole, statuses=statuses)
+    statuses = mongo.db.report_statuses.find().sort(
+        "report_status", pymongo.ASCENDING)
+    report = mongo.db.reports.find_one({"_id": ObjectId(report_id)})
+    return render_template("manage_report.html",
+                           report=report, statuses=statuses)
 
 
 # ---------------------------- DELETE POTHOLE ----------------------------
