@@ -416,8 +416,8 @@ def delete_area(area_id):
 # ---------------------------- GET STATUS' ----------------------------
 @app.route("/get_status")
 def get_status():
-    statuses = list(mongo.db.pothole_statuses.find().sort("pothole_status", 1))
-    return render_template("ph_status.html", statuses=statuses)
+    statuses = list(mongo.db.report_statuses.find().sort("report_status", 1))
+    return render_template("report_status.html", statuses=statuses)
 
 
 # ---------------------------- ADD STATUS ----------------------------
