@@ -425,9 +425,9 @@ def get_status():
 def add_status():
     if request.method == "POST":
         status = {
-            "pothole_status": request.form.get("pothole_status")
+            "report_status": request.form.get("report_status")
         }
-        mongo.db.pothole_statuses.insert_one(status)
+        mongo.db.report_statuses.insert_one(status)
         flash("New Status Added", "flash_success")
         return redirect(url_for("get_status"))
 
