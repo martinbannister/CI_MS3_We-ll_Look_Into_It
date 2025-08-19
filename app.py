@@ -363,7 +363,7 @@ def get_areas():
             return render_template("areas.html", areas=areas)
     else:
         flash("You are not authorised to access this page", "flash_error")
-        return redirect(url_for("get_potholes"))
+        return redirect(url_for("get_reports"))
 
 
 # ---------------------------- ADD AREA ----------------------------
