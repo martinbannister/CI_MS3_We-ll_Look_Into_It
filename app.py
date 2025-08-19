@@ -322,7 +322,7 @@ def add_county():
         return render_template("add_county.html")
     else:
         flash("You are not authorised to access this page", "flash_error")
-        return redirect(url_for("get_potholes"))
+        return redirect(url_for("get_reports"))
 
 
 # ---------------------------- EDIT COUNTY ----------------------------
