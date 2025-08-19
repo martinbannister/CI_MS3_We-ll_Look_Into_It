@@ -277,20 +277,20 @@ def delete_report(report_id):
 
 
 # ---------------------------- UPVOTE ----------------------------
-# Allows a user to upvote a pothole
+# Allows a user to upvote a report
 # currently allows multiple votes per user
-@app.route("/upvote_pothole/<pothole_id>")
-def upvote_pothole(pothole_id):
-    pothole = mongo.db.potholes.find_one({"_id": ObjectId(pothole_id)})
-    current_votes = pothole['upvotes']
+@app.route("/upvote_report/<report_id>")
+def upvote_report(report_id):
+    report = mongo.db.reports.find_one({"_id": ObjectId(report_id)})
+    current_votes = report['upvotes']
     new_votes = current_votes+1
-    update_pothole = {
+    update_report = {
         "upvotes": new_votes
     }
-    mongo.db.potholes.update_one(
-        {"_id": ObjectId(pothole_id)}, {"$set": update_pothole})
+    mongo.db.reports.update_one(
+        {"_id": ObjectId(report_id)}, {"$set": update_report})
     flash("Your vote has been registered", "flash_success")
-    return redirect(url_for("get_potholes"))
+    return redirect(url_for("get_reports"))
 
 
 # ---------------------------------------------------------------------------
