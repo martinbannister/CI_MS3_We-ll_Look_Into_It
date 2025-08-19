@@ -268,12 +268,12 @@ def manage_report(report_id):
                            report=report, statuses=statuses)
 
 
-# ---------------------------- DELETE POTHOLE ----------------------------
-@app.route("/delete_pothole/<pothole_id>")
-def delete_pothole(pothole_id):
-    mongo.db.potholes.delete_one({"_id": ObjectId(pothole_id)})
-    flash("Pothole successfully deleted", "flash_success")
-    return redirect(url_for("get_potholes"))
+# ---------------------------- DELETE REPORT ----------------------------
+@app.route("/delete_report/<report_id>")
+def delete_report(report_id):
+    mongo.db.reports.delete_one({"_id": ObjectId(report_id)})
+    flash("Report successfully deleted", "flash_success")
+    return redirect(url_for("get_reports"))
 
 
 # ---------------------------- UPVOTE ----------------------------
